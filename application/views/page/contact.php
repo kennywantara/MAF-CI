@@ -23,24 +23,41 @@
 				</div>				
 				<div class="col-md-6 span_2_of_3">
 				  <div class="contact-form">
-					    <form action="contact.php" method="post">
+					    <?php echo form_open('contact/send_email');?>
 					    	<div>
 						    	<span><label>NAME</label></span>
-						    	<span><input name="userName" type="text" class="textbox"></span>
+						    	<span>
+						    		<?php 
+										$data = array(
+										        'name'          => 'userName',				   
+										        'class'     	=> 'textbox'
+										); echo form_input($data);
+									?>
+							</span>
 						    </div>
 						    <div>
 						    	<span><label>E-MAIL</label></span>
-						    	<span><input name="userEmail" type="text" class="textbox"></span>
+						    	<span><?php 
+										$data = array(
+										        'name'          => 'userEmail',				   
+										        'class'     	=> 'textbox'
+										); echo form_input($data);
+									?>
+								</span>
 						    </div>
 						    <div>
 						    	<span><label>MESSAGE</label></span>
-						    	<span><textarea name="userMsg"> </textarea></span>
+						    	<span><?php 
+										$data = array(
+										        'name'          => 'userEmail'
+										); echo form_textarea($data);
+									?> 
+								</span>
 						    </div>
 						   <div>
 						   		<button type="submit" class="buttonM" style="margin-left:0px; width:98%;" value="Submit" name="contactus" data-target="#modalThankyou" data-toggle="modal">Submit</button>
-						   		
 						  </div>
-					    </form>
+					    <?php echo form_close(); ?>
 					    	
 
 				    </div>
