@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/datatables.min.js"></script>
-<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-=======
+
 <script src="<?php echo base_url(); ?>assets/js/jquery.min.js"></script>
 <script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
@@ -16,4 +12,4 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="<?php echo base_url(); ?>assets/js/responsiveslides.min.js"></script>
->>>>>>> origin/master
+

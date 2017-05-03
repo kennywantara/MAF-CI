@@ -199,3 +199,8 @@ section.sky-form{
 		font-size: 12px;
 	}
 }
+
+form-box {
+	border-radius: 0px;
+	border-color: #f0f0f0
+}
