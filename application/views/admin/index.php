@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
 	<?php echo $style; ?>
+    
+
 </head>
 <body>
 	<?php echo $navbar; ?>
@@ -44,5 +46,9 @@
 	?>
 	<?php echo $footer; ?>
 	<?php echo $script; ?>
+     <script type="text/javascript">
+    $(document).ready(function() {
+        $('#myTable').DataTable();})
+    </script>
 </body>
 </html>
