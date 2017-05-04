@@ -14,8 +14,27 @@ class Contact extends CI_Controller {
 		$this->load->view('page/contact',$data);
 	}
 
-	public function add_process()
+	public function send_email()
 	{
+		$name = $this->input->post('userName');
+		$email = $this->input->post('userEmail');
+		$msg = $this->input->post('userMsg');
+
+		$config['protocol'] = "smtp";
+		$config['smtp_host'] = "smtp.googlemail.com";
+		$config['smtp_user'] = "automessage23@gmail.com";
+		$config['smtp_pass'] = "nianiania";
+		$config['smtp_port'] = "465";
+		$config['charset'] ="iso-8859-1";
+		$config['mailtype'] = "html";
+
+		$this->load->library('email', $config);
+
+		$this->email->from('automsg23@gmail.com', 'no-reply-message');
+		$this->email->to($email);
+		$this->email->subject('Test email from CI and Gmail');
+$this->email->message('This is a test.');
+$this->email->send();
 
 	}
 }

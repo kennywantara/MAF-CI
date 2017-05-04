@@ -6,7 +6,7 @@
 
 </head>
 <body>
-	<?php echo $navbar; ?>
+	<?php echo $header; ?>
 	
     <div class="container">
         <div class="row">
@@ -32,13 +32,12 @@
 		
 		foreach ($lines as $line) {
 			echo "<tr>";
-             $line     = get_object_vars($line);
-			    echo "<td>".$line['productID']."</td>";
-    			echo "<td>".$line['productName']."</td>";
-    			echo "<td>".$line['productCategory']."</td>";
-                echo "<td>".$line['productPrice']."</td>";
+			    echo "<td>".$line->productID."</td>";
+    			echo "<td>".$line->productName."</td>";
+    			echo "<td>".$line->productCategory."</td>";
+                echo "<td>".$line->productPrice."</td>";
                 /*echo "<td>".$line['productDescription']."</td>";*/
-                echo "<td class='product_picture'><img src=".base_url()."".$line['productPicture']. " style='max-width:100px;'/></td>";
+                echo "<td class='product_picture'><img src=".base_url()."".$line->productPicture. " style='max-width:100px;'/></td>";
             echo "</tr>";
 		}
 		echo "</tbody>";

@@ -1,10 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Order_Model extends CI_Model{
+class Customer_Model extends CI_Model{
 
 	public $CustomerID;
-	public $FirstName;
+	public $Gender;
 	public $LastName;
 	public $Address;
 	public $Email;
@@ -28,27 +28,43 @@ class Order_Model extends CI_Model{
 		$this->db->update('customers',$customer,array('id' => $Id));
 	}
 
-	public function get()
+	public function getAll()
 	{
 		
-		$this->db->select('customerID', 'firstName', 'lastName', 'address', 'email', 'phone');
+		$this->db->select('customerID,firstName,lastName, address, email, phone');
 		$query = $this->db->get('customers');
 		return $query->result();
 	}
 
+	public function getUser($uname){
+		$this->db->select('email,name,hash,salt');
+		$this->db->where('email',$uname);
+		$query = $this->db->get('customers');
+		return $query->row();
+
+	}
 
 
-	public function add($Id,$firstname,$lastname,$address,$email,$phone)
+	public function getAllID(){
+		$this->db->select('customerID');
+		$query = $this->db->get('customers');
+		return $query->result();
+
+	}
+
+
+	public function add($Id,$gender,$email,$name,$dob,$salt,$hash)
 	{
 		
 
 		$customer = array(
 			'customerID' => $Id, 
-			'firstName' => $firstname, 
-			'lastName' => $lastname, 
-			'address' => $address, 
+			'gender' => $gender,
 			'email' => $email, 
-			 'phone' => $phone);
+			 'name' => $name,
+			 'dob' => $dob,
+			 'salt' => $salt,
+			 'hash' => $hash);
 			
 
 		$this->db->insert('customers',$customer);

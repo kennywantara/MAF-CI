@@ -12,7 +12,7 @@
 		 <h2>Login</h2>
 		 <div class="col-md-6 log">			 
 				 <p>Welcome to Madame Antoine Florist</p>
-				 <?php echo form_open('AddProduct/add', 'class="form-horizontal"');?>
+				 <?php echo form_open('signIn/sign_in', 'class="form-horizontal"');?>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="username">Username</label>
 			<div class="col-sm-9">
@@ -52,13 +52,13 @@
 					        'class'     	=> 'text-box'
 					);
 					echo form_submit($data); 
-					$data = array(
+					/*$data = array(
 							'name'          => 'signup',
 					        'value'			=> 'Create an Account',					 			   
 					        'class'     	=> 'a',
 					        'style'			=> 'background-color:none;'
 						);
-					echo form_submit($data);
+					echo form_submit($data);*/
 
 					?>
 					

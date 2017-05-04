@@ -8,7 +8,7 @@ class Admin extends CI_Controller {
 	{
 		$data['style'] = $this->load->view('include/style',NULL,TRUE);
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
-		$data['navbar'] = $this->load->view('template/navbar',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
 		$this->load->model('Product_model');
 		$data['lines'] =  $this->Product_model->getAll();

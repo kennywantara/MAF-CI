@@ -49,17 +49,27 @@
 						    	<span><label>MESSAGE</label></span>
 						    	<span><?php 
 										$data = array(
-										        'name'          => 'userEmail'
+										        'name'          => 'userMsg'
 										); echo form_textarea($data);
 									?> 
 								</span>
 						    </div>
 						   <div>
-						   		<button type="submit" class="buttonM" style="margin-left:0px; width:98%;" value="Submit" name="contactus" data-target="#modalThankyou" data-toggle="modal">Submit</button>
+						   	<?php
+						   		$data = array(
+						   			'name '		=> 'btnSubmit',
+						   			'class' 	=> 'buttonM',
+						   			'style'		=> 'margin-left:0px; width:98%;',
+						   			'value'		=> 'Submit',
+						   			'data-target' => '#modalThankyou',
+						   			'data-toggle' => 'modal'
+						   			);
+						   		echo form_submit($data);
+						   		?>
+						   		<!-- <button type="submit" class="buttonM" style="margin-left:0px; width:98%;" value="Submit" name="contactus" data-target="#modalThankyou" data-toggle="modal">Submit</button> -->
 						  </div>
 					    <?php echo form_close(); ?>
 					    	
-
 				    </div>
   				</div>				
 		  </div>

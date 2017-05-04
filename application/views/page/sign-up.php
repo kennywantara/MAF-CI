@@ -5,13 +5,13 @@
 </head>
 <body>
 <?php echo $header; ?>
-
+<?php echo validation_errors(); ?>
 <div class="container"></div>
 <div class="login_sec">
 	 <div class="container" style="padding:64px;">
 		 <h2>Sign Up</h2>
 		 <div class="col-md-6 log">
-				 <?php echo form_open('AddProduct/add', 'class="form-horizontal"');?>
+				 <?php echo form_open('signup/sign_up', 'class="form-horizontal"');?>
 
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="gender">Gender</label>
@@ -33,7 +33,7 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'username',
+					        'name'          => 'email',
 					        'required'		=> 'true',				   
 					        'class'     	=> 'text-box'
 					); 
@@ -47,7 +47,7 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'password',
+					        'name'          => 'name',
 					        'required'		=> 'true',				   
 					        'class'     	=> 'text-box'
 					); 
@@ -75,7 +75,7 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'password',
+					        'name'          => 'passwordconf',
 					        'required'		=> 'true',				   
 					        'class'     	=> 'text-box'
 					); 
@@ -85,15 +85,38 @@
 			</div>
 		</div>
 		<div class="form-group">
+			<label class="control-label col-sm-3" for="Dob">Birthdate</label>
+			
+			<div class="col-sm-9" >
+				<?php 
+					
+
+					$data = array(
+					        'name'          => 'dob',
+					        'required'		=> 'true',				   
+					        'class'     	=> 'text-box',
+					        'placeholder'	=> 'Year',
+					        'type' => 'date'
+					); 
+
+					echo form_input($data);
+
+
+				?>
+
+			</div>
+
+		</div>
+		<div class="form-group">
 			<label class="control-label col-sm-3"></label>
 			<div class="col-sm-9">
 				<?php 
-					$data = array(
+				/*	$data = array(
 					        'name'          => 'signin',
 					        'value'			=> 'Sign In',					 			   
 					        'class'     	=> 'text-box'
 					);
-					echo form_submit($data); 
+					echo form_submit($data); */
 					$data = array(
 							'name'          => 'signup',
 					        'value'			=> 'Create an Account',					 			   
