@@ -42,6 +42,15 @@ class Product_Model extends CI_Model{
 		return $query->row();
 	}
 
+	public function getByCategory($Category)
+	{
+		
+		$this->db->select('productID,productName,productCategory,productPrice,productDescription,productPicture');
+		$this->db->where('productCategory',$Category);
+		$query = $this->db->get('products');
+		return $query->result();
+	}
+
 	public function add($id,$name,$category,$price,$picture)
 	{
 		

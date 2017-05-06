@@ -11,7 +11,7 @@
 				<h1 class="text-center" style="margin:30px;">Product Catalog</h1>
 					
 					</div>
-					<form action="products.php" method="post">
+					<form method="post">
 					<div class="col-md-8 col-md-offset-2">
 						<div class="btn-group btn-group-justified col-md-4" role="group" aria-label="...">
 						  <div class="btn-group" role="group">
@@ -47,25 +47,27 @@
 
 						$ct = 1;
 						 echo "<div class='row'>";
-						foreach ($data as $line) {						
+						foreach ($box as $line) {						
 								echo "<div class='items-sec btm-sec'>";
-					              echo "<div class='col-md-3 feature-grid'>";
-					                echo  "<img src= '".$line['productPicture']. "' style='max-width:300px;'/>";
-					                echo " <div class='arrival-info'>";
-					                  echo "<h4>".$line['productName']."</h4>";
-					                  echo "<p>".$line['productCategory']."</p>";
-					                  echo "<h5>IDR ".$line['productPrice']."</h5>";
-					                	
-					                echo "</div>";
-					                  echo "<div class='viw'>";
-					                     echo "<form method='post' action='details.php'>
-												<input type='hidden' name='productID' value='".$line['productID']."'>
-												<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
-											</form>";
+						              echo "<div class='col-md-3 feature-grid'>";
+						                echo  "<img src= '".base_url()."".$line->productPicture. "' style='max-width:300px;'/>";
+						                echo " <div class='arrival-info'>";
+						                  echo "<h4>".$line->productName."</h4>";
+						                  echo "<p>".$line->productCategory."</p>";
+						                  echo "<h5>IDR ".$line->productPrice."</h5>";
+						                	
+						                echo "</div>";
+						                  echo "<div class='viw'>";
 
-					                  echo "</div>";
-					              echo "</div>";    
-					            echo "</div>";
+						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
+						                     echo "<form method='post' action='SingleProduct/index'>
+													<input type='hidden' name='productID' value='".$line->productID."'>
+													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
+												</form>";
+
+						                  echo "</div>";
+						              echo "</div>";    
+						            echo "</div>";
 				            	if($ct%4 == 0) echo "</div><div class='row'>";
 
 				            	$ct++;
@@ -86,21 +88,21 @@
 
 							$ct = 1;
 							 echo "<div class='row'>";
-							foreach ($data as $line) {						
-									echo "<div class='items-sec btm-sec'>";
+							foreach ($bouquet as $line) {						
+										echo "<div class='items-sec btm-sec'>";
 						              echo "<div class='col-md-3 feature-grid'>";
-						                echo  "<img src= '".$line['productPicture']. "' style='max-width:300px;'/>";
+						                echo  "<img src= '".base_url()."".$line->productPicture. "' style='max-width:300px;'/>";
 						                echo " <div class='arrival-info'>";
-						                  echo "<h4>".$line['productName']."</h4>";
-						                  echo "<p>".$line['productCategory']."</p>";
-						                  echo "<h5>IDR ".$line['productPrice']."</h5>";
+						                  echo "<h4>".$line->productName."</h4>";
+						                  echo "<p>".$line->productCategory."</p>";
+						                  echo "<h5>IDR ".$line->productPrice."</h5>";
 						                	
 						                echo "</div>";
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='details.php'>
-													<input type='hidden' name='productID' value='".$line['productID']."'>
+						                     echo "<form method='post' action='SingleProduct/index'>
+													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
 
@@ -127,21 +129,21 @@
 							
 							$ct = 1;
 							 echo "<div class='row'>";
-							foreach ($data as $line) {						
-									echo "<div class='items-sec btm-sec'>";
+							foreach ($graduation as $line) {						
+										echo "<div class='items-sec btm-sec'>";
 						              echo "<div class='col-md-3 feature-grid'>";
-						                echo  "<img src= '".$line['productPicture']. "' style='max-width:300px;'/>";
+						                echo  "<img src= '".base_url()."".$line->productPicture. "' style='max-width:300px;'/>";
 						                echo " <div class='arrival-info'>";
-						                  echo "<h4>".$line['productName']."</h4>";
-						                  echo "<p>".$line['productCategory']."</p>";
-						                  echo "<h5>IDR ".$line['productPrice']."</h5>";
+						                  echo "<h4>".$line->productName."</h4>";
+						                  echo "<p>".$line->productCategory."</p>";
+						                  echo "<h5>IDR ".$line->productPrice."</h5>";
 						                	
 						                echo "</div>";
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='details.php'>
-													<input type='hidden' name='productID' value='".$line['productID']."'>
+						                     echo "<form method='post' action='SingleProduct/index'>
+													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
 
