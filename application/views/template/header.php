@@ -2,7 +2,7 @@
 <div class="header-top">
     <div class="header-bottom">            
         <div class="logo">
-            <h1><a href="index.php"><img src="img/logo.png" style="max-width:200px;"></a></h1>                 
+            <h1><a href="index.php"><img src="<?php echo base_url();?>img/logo.png" style="max-width:200px;"></a></h1>                 
         </div>        
         <div class="top-nav">
             <ul class="memenu skyblue">
