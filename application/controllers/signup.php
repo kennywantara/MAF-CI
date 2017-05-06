@@ -56,7 +56,7 @@ class SignUp extends CI_Controller {
 		$hash = md5($password.$salt);
 
 		$this->Customer_model->add('C0005',$gender,$email,$name,$dob,$salt,$hash);
-		}
+		
 		else{
 			$this->load->view('page/sign-up',$data);
 		}

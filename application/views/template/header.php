@@ -7,8 +7,8 @@
         <div class="top-nav">
             <ul class="memenu skyblue">
                 <li class=""><a href="index.php">Home</a></li>
-                <li class="grid"><a href="products.php">Products</a></li>
-                <li class="grid"><a href="contact.php">Contact</a></li>                    
+                <li class="grid"><a href="<?php echo site_url("Products/index"); ?>">Products</a></li>
+                <li class="grid"><a href="<?php echo site_url("Contact/index"); ?>">Contact</a></li>                    
             </ul>               
         </div>
         <div class="clearfix"> </div>

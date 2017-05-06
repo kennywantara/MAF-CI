@@ -11,7 +11,7 @@ class Admin extends CI_Controller {
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
 		$this->load->model('Product_model');
-		$data['lines'] =  $this->Product_model->getAll();
+		$data['line'] =  $this->Product_model->getAll();
 		$this->load->view('admin/index',$data);
 	}
 

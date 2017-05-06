@@ -44,7 +44,6 @@
 							}
 							</style>
 							<?php
-							$data = $conn->query('SELECT productID, productName, productCategory, productPrice, productPicture from products WHERE productCategory = "Flower Box" ');
 
 						$ct = 1;
 						 echo "<div class='row'>";
@@ -83,8 +82,6 @@
 						}
 							</style>
 							<?php
-
-							$data = $conn->query('SELECT productID, productName, productCategory, productPrice, productPicture FROM products WHERE productCategory = "Hand Bouquet"');
 
 
 							$ct = 1;
@@ -127,9 +124,7 @@
 						}
 							</style>
 							<?php
-							$data = $conn->query('SELECT productID, productName, productCategory, productPrice, productPicture FROM products WHERE productCategory = "Graduation Flower"');
-
-
+							
 							$ct = 1;
 							 echo "<div class='row'>";
 							foreach ($data as $line) {						
@@ -169,26 +164,25 @@
 						}
 							</style>
 							<?php
-							$data = $conn->query('SELECT productID, productName, productCategory, productPrice, productPicture FROM products');
-
+							
 
 							$ct = 1;
 							 echo "<div class='row'>";
 							foreach ($data as $line) {						
 									echo "<div class='items-sec btm-sec'>";
 						              echo "<div class='col-md-3 feature-grid'>";
-						                echo  "<img src= '".$line['productPicture']. "' style='max-width:300px;'/>";
+						                echo  "<img src= '".base_url()."".$line->productPicture. "' style='max-width:300px;'/>";
 						                echo " <div class='arrival-info'>";
-						                  echo "<h4>".$line['productName']."</h4>";
-						                  echo "<p>".$line['productCategory']."</p>";
-						                  echo "<h5>IDR ".$line['productPrice']."</h5>";
+						                  echo "<h4>".$line->productName."</h4>";
+						                  echo "<p>".$line->productCategory."</p>";
+						                  echo "<h5>IDR ".$line->productPrice."</h5>";
 						                	
 						                echo "</div>";
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='details.php'>
-													<input type='hidden' name='productID' value='".$line['productID']."'>
+						                     echo "<form method='post' action='SingleProduct/index'>
+													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
 

@@ -33,7 +33,14 @@ class Product_Model extends CI_Model{
 		return $query->result();
 	}
 
-
+	public function getByID($id)
+	{
+		
+		$this->db->select('productID,productName,productCategory,productPrice,productDescription,productPicture');
+		$this->db->where('productID',$id);
+		$query = $this->db->get('products');
+		return $query->row();
+	}
 
 	public function add($id,$name,$category,$price,$picture)
 	{
