@@ -17,20 +17,17 @@ class SignIn extends CI_Controller {
 	public function sign_in()
 	{
 		$this->load->model('customer_model');
-
-		
-
 		$user = $this->customer_model->getUser($this->input->post('username'));
 		$password = $this->input->post('password');
 
 		$hash = md5($password.$user->salt);
+
 		if (strcmp($hash, $user->hash) == 0){
 			$login = array(
 				'name' => $user->name,
-				'admin' => FALSE ,
-				'logged_in' => TRUE );
+				'admin' => FALSE  );
 			$this->session->set_userdata($login);
-			$this->load->view('page/index');
+			redirect('Home/index');
 		}
 		
 	}
