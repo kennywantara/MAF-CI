@@ -30,7 +30,7 @@ class SignIn extends CI_Controller {
 				'admin' => FALSE ,
 				'logged_in' => TRUE );
 			$this->session->set_userdata($login);
-			$this->load->view('');
+			$this->load->view('page/index');
 		}
 		
 	}

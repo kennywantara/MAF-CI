@@ -33,6 +33,16 @@ class Product_Model extends CI_Model{
 		return $query->result();
 	}
 
+	public function getFour()
+	{
+		
+		$this->db->order_by('productPrice', 'ASC');
+		$this->db->select('productID,productName,productCategory,productPrice,productPicture');
+		$query = $this->db->get('products', 4);
+
+		return $query->result();
+	}
+
 	public function getByID($id)
 	{
 		
