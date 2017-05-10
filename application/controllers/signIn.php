@@ -31,4 +31,9 @@ class SignIn extends CI_Controller {
 		}
 		
 	}
+
+	public function sign_out(){
+		$this->session->unset_userdata('name');
+		redirect('Home/index');
+	}
 }
