@@ -53,7 +53,7 @@ class Customer_Model extends CI_Model{
 	}
 
 
-	public function add($Id,$gender,$email,$name,$dob,$salt,$hash)
+	public function add($gender,$email,$name,$dob,$salt,$hash)
 	{
 		
 

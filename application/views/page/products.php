@@ -60,7 +60,7 @@
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='SingleProduct/index'>
+						                     echo "<form method='post' action='".site_url()."/SingleProduct/index'>
 													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
@@ -101,7 +101,7 @@
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='SingleProduct/index'>
+						                     echo "<form method='post' action='".site_url()."/SingleProduct/index'>
 													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
@@ -142,7 +142,7 @@
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='SingleProduct/index'>
+						                     echo "<form method='post' action='".site_url()."/SingleProduct/index'>
 													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
@@ -183,7 +183,7 @@
 						                  echo "<div class='viw'>";
 
 						                     // echo "<a href='product.html'><span class='glyphicon glyphicon-eye-open' aria-hidden='true'></span>View</a>";
-						                     echo "<form method='post' action='SingleProduct/index'>
+						                     echo "<form method='post' action='".site_url()."/SingleProduct/index'>
 													<input type='hidden' name='productID' value='".$line->productID."'>
 													<button type='submit' class=' btn btn-link glyphicon glyphicon-eye-open' name='details'>View</button>
 												</form>";
