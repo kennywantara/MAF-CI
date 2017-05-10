@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SignIn extends CI_Controller {
@@ -32,8 +32,6 @@ class SignIn extends CI_Controller {
 			$this->session->set_userdata($login);
 			$this->load->view('');
 		}
-		else{
-			/*error nya nanti*/
-		}
+		
 	}
 }

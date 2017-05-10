@@ -46,7 +46,7 @@ class SignUp extends CI_Controller {
 
 		if($this->form_validation->run() == TRUE){
 			
-			}
+			
 		$password = $this->input->post('password');
 		$gender = $this->input->post('gender');
 		$email = $this->input->post('email');
@@ -55,8 +55,8 @@ class SignUp extends CI_Controller {
 		$salt = rand(0,9999);
 		$hash = md5($password.$salt);
 
-		$this->Customer_model->add('C0005',$gender,$email,$name,$dob,$salt,$hash);
-		
+		$this->Customer_model->add('C0010',$gender,$email,$name,$dob,$salt,$hash);
+		}
 		else{
 			$this->load->view('page/sign-up',$data);
 		}
