@@ -10,6 +10,12 @@ class Home extends CI_Controller {
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$this->load->model('Product_model');
+		$data['data'] =  $this->Product_model->getFour();
+
+		$this->load->view('page/home',$data);
+	}
+
 
 
 }
