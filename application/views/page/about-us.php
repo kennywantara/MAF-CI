@@ -8,7 +8,7 @@
 <div class="pages">
 		<div class="container">
 
-			 <h2 class="top">How To Order</h2>
+			 <h2 class="top">About Us</h2>
 			 </br>
 			 <div class="row col-md-6 col-md-offset-3">
 			 	<p>1. Choose </p>
