@@ -16,6 +16,9 @@ class Home extends CI_Controller {
 		$this->load->view('page/home',$data);
 	}
 
+	public function how-to-order(){
+		$this->load->view('page/how-to-order',$data);	
+	}
 
 
 }
