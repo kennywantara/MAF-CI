@@ -1,0 +1,2 @@
+[13-May-2017 11:11:49 Europe/Berlin] PHP Fatal error:  Call to a member function insert() on a non-object in D:\xampp\htdocs\MAF-CI\application\controllers\products.php on line 47
+[13-May-2017 11:12:09 Europe/Berlin] PHP Fatal error:  Call to a member function insert() on a non-object in D:\xampp\htdocs\MAF-CI\application\controllers\products.php on line 47

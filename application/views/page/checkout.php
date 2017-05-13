@@ -9,6 +9,8 @@
 <div class="container">
 	<div class="check-sec">	 
 		<div class="col-md-3 cart-total">
+			<?php foreach ($cart as $data) {
+                         echo $data['name'];} ?>
 			<a class="continue" href="product.html">Continue to basket</a>
 			<div class="price-details">
 				<h3>Price Details</h3>
