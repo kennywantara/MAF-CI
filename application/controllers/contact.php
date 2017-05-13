@@ -32,8 +32,8 @@ class Contact extends CI_Controller {
 
 		$this->email->from('automsg23@gmail.com', 'no-reply-message');
 		$this->email->to($email);
-		$this->email->subject('Test email from CI and Gmail');
-$this->email->message('This is a test.');
+		$this->email->subject('Madame Antoine Florist');
+$this->email->message('Thank you for contacting us. Your request will be processed soon. Regardss, Madame Antoine Florist');
 $this->email->send();
 
 	}
