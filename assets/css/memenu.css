@@ -1,14 +1,14 @@
 .memenu
 {
+	font-family: 'Dosis-Regular';
 	margin:0;
 	padding:0;
 	width:100%;
 	list-style:none;
-	display:inline-block;position:relative;font-family:Calibri,Arial;font-size:15px}
+	display:inline-block;position:relative;font-size:15px}
 .memenu li{text-align:left;}
 ul.memenu.skyblue {text-align: center;}
 .memenu>li>a{ 
-	font-family: 'Dosis-Regular';
 	float:left;
 	padding:10px 10px;
 	color:#caccce;
