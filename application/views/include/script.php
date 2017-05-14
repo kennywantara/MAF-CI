@@ -64,7 +64,7 @@ $.ajax({
                   url: "<?php echo site_url('products/shopping_cart');?>",
                   data: "",
                   success: function (response) {
-                  $(".dropdown").html(response);
+                  $(".dropdown-menu").html(response);
                   }
               });
   }

@@ -1,4 +1,4 @@
-<ul class="dropdown-menu dropdown-cart" style="margin-top:32px; padding:16px 5px; min-width:300px;" style="width:80%;" role="menu">
+
                        <?php 
                 if(isset($cart) && is_array($cart) && count($cart)){
                         $i=1;
@@ -32,4 +32,4 @@
                       ?>
                       <li><a class="text-center" href="<?php echo site_url();?>/products/checkout">View Cart</a></li>
 
-                  </ul>
+                 
