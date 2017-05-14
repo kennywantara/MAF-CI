@@ -44,7 +44,7 @@
                     url: "<?php echo site_url('products/add');?>",
                     data: "id=00"+id+"&picture="+picture+"&name="+name+"&price="+price,
                     success: function (response) {
-                      
+                      window.location.href = '<?php echo site_url('products/checkout');?>'
                     }
                 });
     }

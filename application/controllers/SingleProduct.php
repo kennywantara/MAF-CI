@@ -16,9 +16,5 @@ class SingleProduct extends CI_Controller {
 		$this->load->view('page/single-product',$data);
 	}
 
-	public function add_process()
-	{
-
-	}
 }
 ?>

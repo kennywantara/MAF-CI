@@ -16,24 +16,18 @@
 <script type="text/javascript">
 function deleteproduct(rowid)
 {
-var answer = confirm ("Are you sure you want to delete?");
+/*var answer = confirm ("Are you sure you want to delete?");
 if (answer)
-{
+{*/
 $.ajax({
       type: "POST",
-      url: "<?php echo site_url('welcome/remove');?>",
+      url: "<?php echo site_url('products/remove');?>",
       data: "rowid="+rowid,
       success: function (response) {
-          $(".rowid"+rowid).remove(".rowid"+rowid); 
-          $(".cartcount").text(response);  
-          var total = 0;
-          $('.subtotal').each(function(){
-              total += parseInt($(this).text());
-              $('.grandtotal').text(total);
-          });              
-      }
-  });
-}
+          $("#rowid"+rowid).remove("#rowid"+rowid); 
+          }           
+      });
+/*}*/
 }
 
 var total = 0;

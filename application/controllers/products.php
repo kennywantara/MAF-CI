@@ -47,5 +47,23 @@ class Products extends CI_Controller {
 		var_dump($insert_data);
     // This function add items into cart.
     $this->cart->insert($insert_data);
+    redirect('products/checkout');
+	}
+
+	public function remove(){
+		$rowid = $this->input->post('rowid');
+    // Check rowid value.
+    if ($rowid==="all"){
+    // Destroy data which store in session.
+        $this->cart->destroy();
+    }else{
+    // Destroy selected rowid in session.
+    $data = array(
+            'rowid' => $rowid,
+            'qty' => 0
+            );
+    // Update cart data, after cancel.
+    $this->cart->update($data);
+    }
 	}
 }

@@ -4,13 +4,11 @@
   <?php echo $style; ?>
 </head>
 <body>
-<?php echo $header; ?>
+<?php echo $header; $i = 0; ?>
 
 <div class="container">
 	<div class="check-sec">	 
 		<div class="col-md-3 cart-total">
-			<?php foreach ($cart as $data) {
-                         echo $data['name'];} ?>
 			<a class="continue" href="product.html">Continue to basket</a>
 			<div class="price-details">
 				<h3>Price Details</h3>
@@ -36,29 +34,25 @@
 			</div>
 		</div>
 		<div class="col-md-9 cart-items">
-			<h1>My Shopping Bag (2)</h1>
-				<script>$(document).ready(function(c) {
-					$('.close1').on('click', function(c){
-						$('.cart-header').fadeOut('slow', function(c){
-							$('.cart-header').remove();
-						});
-						});	  
-					});
-			   </script>
-			<div class="cart-header">
-				<div class="close1"> </div>
+			<h1>My Shopping Bag </h1>
+				
+			<?php foreach ($cart as $data) {
+				$i++;
+                     ?>
+			<div class="cart-header<?php echo $data['id']; ?>">
+				<div class="close<?php echo $data['id']; ?>"> </div>
 				<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							<img src="images/p4.jpg" class="img-responsive" alt=""/>
+							<img src="<?php echo base_url().'/'.$data['picture'];?>" class="img-responsive" alt=""/>
 						</div>
 					   <div class="cart-item-info">
-						    <h3><a href="single.html">Rock Light Emergency Lights</a><span>Model No: RL-5511S</span></h3>
+						    <h3><a href="single.html"><?php echo $data['name'];?></a><span>Model No: RL-5511S</span></h3>
 							<ul class="qty">
-								<li><p>Size : 5</p></li>
-								<li><p>Qty : 1</p></li>
+								
+								<li><p>Qty : <?php echo $data['qty'];?> </p></li>
 							</ul>
 							<div class="delivery">
-								 <p>Service Charges : Rs.100.00</p>
+								 <p>Price : <?php echo $data['price'];?></p>
 								 <div class="clearfix"></div>
 							</div>								
 					   </div>
@@ -67,33 +61,15 @@
 				  </div>
 			 </div>
 			 <script>$(document).ready(function(c) {
-					$('.close2').on('click', function(c){
-							$('.cart-header2').fadeOut('slow', function(c){
-						$('.cart-header2').remove();
+					$('.close<?php echo $data['id']; ?>').on('click', function(c){
+						$('.cart-header<?php echo $data['id']; ?>').fadeOut('slow', function(c){
+							$('.cart-header<?php echo $data['id']; ?>').remove();
+						});
+						});	  
 					});
-					});	  
-					});
-			 </script>
-			<div class="cart-header2">
-				<div class="close2"> </div>
-					<div class="cart-sec simpleCart_shelfItem">
-						<div class="cart-item cyc">
-							 <img src="images/p3.jpg" class="img-responsive" alt=""/>
-						</div>
-					    <div class="cart-item-info">
-							 <h3><a href="single.html">Show Lights</a><span>Model No: SL-3578</span></h3>
-							<ul class="qty">
-								<li><p>Size : 5</p></li>
-								<li><p>Qty : 1</p></li>
-							</ul>
-							<div class="delivery">
-								<p>Service Charges : Rs.100.00</p>
-								<div class="clearfix"></div>
-							</div>							
-					   </div>
-					   <div class="clearfix"></div>					
-				    </div>
-			</div>		
+			   </script>
+			 <?php } ?>
+			
 		</div>
 		<div class="clearfix"> </div>
 	</div>
