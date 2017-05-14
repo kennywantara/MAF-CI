@@ -25,7 +25,7 @@
 
 
                 <li class="dropdown">
-                  <a class="dropdown-toggle" data-toggle="dropdown" role="button" < aria-expanded="true" style="float:right;"><button onclick="javascript:opencart()"><span class="glyphicon glyphicon-shopping-cart"></span>Items<span  class="caret"></span></button></a>
+                  <a class="dropdown-toggle" data-toggle="dropdown" role="button"  aria-expanded="true" style="float:right;"><button style="border:none; background-color:transparent;" onclick="javascript:opencart()"><span class="glyphicon glyphicon-shopping-cart"></span>SHOPPING CART<span  class="caret"></span></button></a>
                    
                 </li> 
             </ul>               
