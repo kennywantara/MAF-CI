@@ -21,19 +21,20 @@ class Contact extends CI_Controller {
 		$msg = $this->input->post('userMsg');
 
 		$config['protocol'] = "smtp";
-		$config['smtp_host'] = "smtp.googlemail.com";
+		$config['smtp_host'] = "ssl://smtp.googlemail.com";
 		$config['smtp_user'] = "automessage23@gmail.com";
 		$config['smtp_pass'] = "nianiania";
 		$config['smtp_port'] = "465";
 		$config['charset'] ="iso-8859-1";
 		$config['mailtype'] = "html";
-
+		
 		$this->load->library('email', $config);
-
+		$this->email->set_crlf("\r\n");
+$this->email->set_newline("\r\n");
 		$this->email->from('automsg23@gmail.com', 'no-reply-message');
 		$this->email->to($email);
 		$this->email->subject('Madame Antoine Florist');
-$this->email->message('Thank you for contacting us. Your request will be processed soon. Regardss, Madame Antoine Florist');
+$this->email->message('Thank you for contacting us. Your request will be processed soon. Regards, Madame Antoine Florist');
 $this->email->send();
 
 	}
