@@ -6,10 +6,6 @@
 <body>
 	<?php echo $script;?>
 <?php echo $header; $i=0; $total = 0;
- foreach ($cart as  $value) {
- 	$total += $value['subtotal'];
- }
-
  ?>
 
 <div class="container">
@@ -19,7 +15,7 @@
 			<h1>My Shopping Bag </h1>
 				
 			<?php foreach ($cart as $data) {
-				
+				 	
 				$i++;
                      ?>
 			<div class="cart-header<?php echo $data['id']; ?>">

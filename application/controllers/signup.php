@@ -32,10 +32,9 @@ class SignUp extends CI_Controller {
                 'required'      => 'You have not provided %s.',
                 'min_length'    => 'Your password must be atleast 8 characters'
         ));
-		$this->form_validation->set_rules('passwordconf', 'Password Confirmation', 'required|min_length[8]|matches[password]',  array(
+		$this->form_validation->set_rules('passwordconf', 'Password Confirmation', 'required|matches[password]',  array(
                 'required'      => 'You have not provided %s.',
-                'min_length'    => 'Your password must be atleast 8 characters',
-                'matches'     => 'These passwords dont match'
+                'matches'     => 'These passwords did not match'
         ));
 		$this->form_validation->set_rules('name', 'Name', 'required',  array(
                 'required'      => 'You have not provided %s.'));

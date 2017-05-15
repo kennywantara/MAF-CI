@@ -8,6 +8,20 @@
 
 <div class="container"></div>
 <div class="login_sec">
+
+<?php	
+	//error dari field
+if(validation_errors()){
+	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button><b>You\'ve made some errors! Please check them below: <br></b>' ;
+    echo validation_errors();
+    echo '</div>';      }
+    //error dari username/password nya salah
+    else if(isset($error_message)) {
+    	echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button>';
+    echo $error_message;
+    echo '</div>';   
+    }                          
+?>
 	 <div class="container" style="padding:64px;">
 		 <h2>Login</h2>
 		 <div class="col-md-6 log">			 
@@ -52,16 +66,10 @@
 					        'class'     	=> 'text-box'
 					);
 					echo form_submit($data); 
-					/*$data = array(
-							'name'          => 'signup',
-					        'value'			=> 'Create an Account',					 			   
-					        'class'     	=> 'a',
-					        'style'			=> 'background-color:none;'
-						);
-					echo form_submit($data);*/
+					
 
 					?>									
-					<a class="acount-btn" href="account.html">Create an Account</a>
+					<a class="acount-btn" href="<?php echo site_url('signUp/index')?>">Create an Account</a>
 					
 					
 				<a href="" class="col-sm-12">Forgot your password</a>

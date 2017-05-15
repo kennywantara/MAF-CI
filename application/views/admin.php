@@ -16,10 +16,7 @@ foreach($css_files as $file): ?>
 		<a href='<?php echo site_url('admin/customers_management')?>'>Customers</a> |
 		<a href='<?php echo site_url('admin/orders_management')?>'>Orders</a> |
 		<a href='<?php echo site_url('admin/products_management')?>'>Products</a> |
-		<a href='<?php echo site_url('admin/offices_management')?>'>Offices</a> | 
-		<a href='<?php echo site_url('admin/employees_management')?>'>Employees</a> |		 
-		<a href='<?php echo site_url('admin/film_management')?>'>Films</a> |
-		<a href='<?php echo site_url('admin/multigrids')?>'>Multigrid [BETA]</a>
+		<a href='<?php echo site_url('admin/orderdetails_management')?>'>Order Details</a> | 
 		
 	</div>
 	<div style='height:20px;'></div>  
