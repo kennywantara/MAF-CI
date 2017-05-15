@@ -61,8 +61,7 @@
 					echo form_submit($data);*/
 
 					?>									
-					<a class="acount-btn" href="account.html">Create an Account</a>
-					
+					<a class="acount-btn" href="<?php echo site_url("SignUp/index"); ?>">Create an Account</a>
 					
 				<a href="" class="col-sm-12">Forgot your password</a>
 

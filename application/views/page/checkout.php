@@ -44,6 +44,14 @@
 								 <div class="clearfix"></div>
 							</div>								
 					   </div>
+					   	<div class="form-group">
+							<label class="control-label col-sm-3">Notes</label>
+							<textarea name="deliveryAddress" cols="50" rows="5"></textarea>
+						</div>
+					   	<div class="form-group">
+							<label class="control-label col-sm-3">Delivery Address</label>
+							<textarea name="deliveryAddress" cols="50" rows="5"></textarea>
+						</div>
 					   <div class="clearfix"></div>
 											
 				  </div>
@@ -60,7 +68,7 @@
 			
 		</div>
 				<div class="col-md-3 cart-total">
-			<a class="continue" href="">Continue to basket</a>
+			<a class="continue" href="">Continue shopping</a>
 			<div class="price-details">
 				<h3>Price Details</h3>
 				<span>Total</span>
@@ -83,10 +91,6 @@
 				<h4>COUPONS</h4>
 				<a class="cpns" href="#">Apply Coupons</a>
 			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-2">Delivery Address</label>
-			<textarea name="deliveryAddress" cols="50" rows="5"></textarea>
 		</div>
 
 		<div class="clearfix"> </div>
