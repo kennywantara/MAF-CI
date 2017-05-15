@@ -60,13 +60,13 @@
 						);
 					echo form_submit($data);*/
 
-					?>
+					?>									
+					<a class="acount-btn" href="account.html">Create an Account</a>
 					
-
 					
+				<a href="" class="col-sm-12">Forgot your password</a>
 
 			</div>
-				<a href="">Forgot your password</a>
 		</div>
 	<?php echo form_close(); ?>
 		 </div>	

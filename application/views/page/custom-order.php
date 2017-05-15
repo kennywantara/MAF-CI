@@ -17,10 +17,8 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'Rose',
-					        'placeholder'	=> 'Username',
-					        'required'		=> 'true',				   
-					        'class'     	=> 'text-box',
+					        'name'          => 'Rose',				   
+					        'class'     	=> 'text-box col-sm-1',
 					        'type' 			=> 'number'
 					); 
 					echo form_input($data);
@@ -29,12 +27,11 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="tulip">Tulip</label>
-			<div class="col-sm-9">
+			<div class="col-sm-4" style="width:50%;">
 				<?php 
 					$data = array(
-					        'name'          => 'password',
-					        'required'		=> 'true',				   
-					        'class'     	=> 'text-box',
+					        'name'          => 'Tulip',
+					        'class'			=> 'text-box col-sm-4',	   
 					        'type' 			=> 'number'
 					); 
 					echo form_input($data);
@@ -47,9 +44,8 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'password',
-					        'required'		=> 'true',				   
-					        'class'     	=> 'text-box',
+					        'name'          => 'Chocolate',		   
+					        'class'     	=> 'text-box col-sm-1',
 					        'type' 			=> 'number'
 					); 
 					echo form_input($data);
@@ -62,10 +58,25 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'bear',
-					        'required'		=> 'true',				   
-					        'class'     	=> 'text-box',
+					        'name'          => 'bear',		   
+					        'class'     	=> 'text-box col-sm-1',
 					        'type' 			=> 'number'
+					); 
+					echo form_input($data);
+				?>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="tulip">Notes</label>
+			<div class="col-sm-9">
+				<?php 
+					$data = array(
+					        'name'          => 'bear',		   
+					        'class'     	=> 'text-box col-sm-1',
+					        'type' 			=> 'text',
+					        'cols'			=> '4',
+					        'rows'			=> '6'
 					); 
 					echo form_input($data);
 				?>

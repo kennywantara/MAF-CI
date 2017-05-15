@@ -14,31 +14,7 @@
 
 <div class="container">
 	<div class="check-sec">	 
-		<div class="col-md-3 cart-total">
-			<a class="continue" href="">Continue to basket</a>
-			<div class="price-details">
-				<h3>Price Details</h3>
-				<span>Total</span>
-				<span class="total1">6200.00</span>
-				<span>Discount</span>
-				<span class="total1">10%(Festival Offer)</span>
-				<span>Delivery Charges</span>
-				<span class="total1">150.00</span>
-				<div class="clearfix"></div>				 
-			</div>	
-			<ul class="total_price">
-			   <li class="last_price"> <h4>TOTAL</h4></li>	
-			   <li class="last_price"><span><?php echo $total;?></span></li>			   
-			</ul> 
-			<div class="clearfix"></div>
-			<div class="clearfix"></div>
-			<a class="order" href="#">Place Order</a>
-			<div class="total-item">
-				<h3>OPTIONS</h3>
-				<h4>COUPONS</h4>
-				<a class="cpns" href="#">Apply Coupons</a>
-			</div>
-		</div>
+
 		<div class="col-md-9 cart-items">
 			<h1>My Shopping Bag </h1>
 				
@@ -83,6 +59,36 @@
 			 <?php } ?>
 			
 		</div>
+				<div class="col-md-3 cart-total">
+			<a class="continue" href="">Continue to basket</a>
+			<div class="price-details">
+				<h3>Price Details</h3>
+				<span>Total</span>
+				<span class="total1">6200.00</span>
+				<span>Discount</span>
+				<span class="total1">10%(Festival Offer)</span>
+				<span>Delivery Charges</span>
+				<span class="total1">150.00</span>
+				<div class="clearfix"></div>				 
+			</div>	
+			<ul class="total_price">
+			   <li class="last_price"> <h4>TOTAL</h4></li>	
+			   <li class="last_price"><span><?php echo $total;?></span></li>			   
+			</ul> 
+			<div class="clearfix"></div>
+			<div class="clearfix"></div>
+			<a class="order" href="#">Place Order</a>
+			<div class="total-item">
+				<h3>OPTIONS</h3>
+				<h4>COUPONS</h4>
+				<a class="cpns" href="#">Apply Coupons</a>
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-2">Delivery Address</label>
+			<textarea name="deliveryAddress" cols="50" rows="5"></textarea>
+		</div>
+
 		<div class="clearfix"> </div>
 	</div>
 </div>

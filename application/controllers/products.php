@@ -66,4 +66,13 @@ class Products extends CI_Controller {
     $this->cart->update($data);
     }
 	}
+
+	public function customOrder(){
+		$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$this->load->view('page/custom-order',$data);
+
+	}
 }

@@ -1845,6 +1845,18 @@ label {
 .registration_form input[type="submit"]:hover{
 	background:#ed645c;
 }
+.custom_order input[type="number"]{
+	padding: 8px;
+	display: block;
+	width:100%;
+	outline: none;
+	color: #333333;
+	-webkit-appearance: none;
+	text-transform: capitalize;
+	background: #FFFFFF;
+	border: 1px solid rgb(231, 231, 231);
+	font-weight: normal;
+}
 .terms{
 	text-decoration:underline;
 	text-transform:capitalize;
