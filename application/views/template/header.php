@@ -1,6 +1,6 @@
     <div class="">            
         <div class="logo">
-            <a href="index.php"><img src="<?php echo base_url();?>img/logo.png" style="max-width:150px;"></a>                 
+            <a href="<?php echo site_url("Home/index"); ?>"><img src="<?php echo base_url();?>img/logo.png" style="max-width:150px;"></a>                 
         </div>        
         <div class="top-nav">
             <ul class="memenu">
@@ -15,7 +15,7 @@
             <ul class="memenu" >
                   
                 <?php if(isset($_SESSION['name'])){ ?>
-                <li class="" ><a style="float:right;" href="<?php echo site_url("Signin/sign_out"); ?>">Welcome , <?php echo $_SESSION['name']; ?></a></li>
+                <li class="" ><a style="float:right;" href="">Welcome , <?php echo $_SESSION['name']; ?></a></li>
                 <li class="" ><a style="float:right;" href="<?php echo site_url("Signin/sign_out"); ?>">Sign Out</a></li>
                 <?php }
                 else{ ?>

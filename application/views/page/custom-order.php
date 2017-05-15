@@ -27,11 +27,11 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="tulip">Tulip</label>
-			<div class="col-sm-4" style="width:50%;">
+			<div class="col-sm-9">
 				<?php 
 					$data = array(
 					        'name'          => 'Tulip',
-					        'class'			=> 'text-box col-sm-4',	   
+					        'class'			=> 'text-box col-sm-1',	   
 					        'type' 			=> 'number'
 					); 
 					echo form_input($data);
@@ -73,12 +73,13 @@
 				<?php 
 					$data = array(
 					        'name'          => 'bear',		   
-					        'class'     	=> 'text-box col-sm-1',
+					        'class'     	=> 'text-box col-sm-9',
 					        'type' 			=> 'text',
-					        'cols'			=> '4',
-					        'rows'			=> '6'
+					        'cols'			=> '8',
+					        'rows'			=> '4',
+					        'style'			=> 'border: 1px solid #D6D6D6'
 					); 
-					echo form_input($data);
+					echo form_textarea($data);
 				?>
 
 			</div>

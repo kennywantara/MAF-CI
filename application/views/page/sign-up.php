@@ -5,7 +5,12 @@
 </head>
 <body>
 <?php echo $header; ?>
-<?php echo validation_errors(); ?>
+<?php if(validation_errors()){
+	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button><b>You\'ve made some errors! Please check them below: <br></b>' ;
+    echo validation_errors();
+    echo '</div>';                                 
+}
+ ?>
 <div class="container"></div>
 <div class="login_sec">
 	 <div class="container" style="padding:64px;">
@@ -18,7 +23,7 @@
 			
 			<div class="col-sm-9" style="vertical-align:middle;">
 				<div class="col-sm-3">
-					<input type="radio" name="gender" value="male" />Male	
+					<input type="radio" checked="checked" name="gender" value="male" />Male	
 				</div>
 				<div class="col-sm-3">
 					<input type="radio" name="gender" value="female" />Female	

@@ -1667,8 +1667,18 @@ padding-bottom:10px;
 .log form {
 margin-top:2em;
 }
-.log form input[type="text"],.log form input[type="password"] {
-width: 90%;
+.log form input[type="text"],.log form input[type="password"], input[type="date"], input[type="number"] {
+width: 20%;
+padding: 8px;
+font-size: 1em;
+font-weight: 400;
+border: 1px solid #D6D6D6;
+outline: none;
+color: #5d5959;
+margin-bottom:2em;
+}
+form input[type=date]::-webkit-calendar-picker-indicator {
+    width: 90%;
 padding: 8px;
 font-size: 1em;
 font-weight: 400;
@@ -2510,4 +2520,6 @@ input.item_add.items {
 .item_quantity {
     width: 61%;
 }
+
+
 }
