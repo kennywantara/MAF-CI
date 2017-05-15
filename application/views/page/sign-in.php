@@ -10,17 +10,18 @@
 <div class="login_sec">
 	 <div class="container" style="padding:64px;">
 		 <h2>Login</h2>
-		 <div class="col-md-6 log">			 
+		 <div class="col-md-9 log">			 
 				 <p>Welcome to Madame Antoine Florist</p>
 				 <?php echo form_open('signIn/sign_in', 'class="form-horizontal"');?>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="username">Username</label>
-			<div class="col-sm-9">
+			<div class="col-sm-8">
 				<?php 
 					$data = array(
 					        'name'          => 'username',
 					        'placeholder'	=> 'Username',
-					        'required'		=> 'true',				   
+					        'required'		=> 'true',
+					        'type'			=> 'text',				   
 					        'class'     	=> 'text-box'
 					); 
 					echo form_input($data);
@@ -29,7 +30,7 @@
 		</div>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="password">Password</label>
-			<div class="col-sm-9">
+			<div class="col-sm-8">
 				<?php 
 					$data = array(
 					        'name'          => 'password',
