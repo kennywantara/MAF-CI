@@ -6,7 +6,7 @@
             <ul class="memenu">
                 <li class=""><a href="<?php echo site_url("Home/index"); ?>">Home</a></li>
                 <li class=""><a href="<?php echo site_url("Products/index"); ?>">Products</a></li>
-                <li class=""><a href="<?php echo site_url("Products/customOrder"); ?>">Contact</a></li>               
+                <li class=""><a href="<?php echo site_url("Products/customOrder"); ?>">CustomOrder</a></li>               
                 <li class=""><a href="<?php echo site_url("Contact/index"); ?>">Contact</a></li>               
                 
             </ul>               
