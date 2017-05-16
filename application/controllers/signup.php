@@ -95,7 +95,7 @@ class SignUp extends CI_Controller {
 
              $qstring = $this->base64url_encode($token);
 
-             $url = site_url() . '/sign_up/reset_password/token/' . $qstring;  
+             $url = site_url() . '/signup/token_url/token/' . $qstring;  
              $link = '<a href="' . $url . '">' . $url . '</a>';   
                
              $message = '';             
