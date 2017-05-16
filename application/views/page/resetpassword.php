@@ -19,73 +19,63 @@
     echo $error_message;
     echo '</div>';   
     } 
-    else if($this->session->flashdata('fail')){
-    	echo ' <div class="alert alert-success"><button class="close" data-dismiss="alert"></button>';
-    echo $this->session->flashdata('fail');
-    echo '</div>'; 
-    } 
-    else if($this->session->flashdata('salah')){
-    	echo ' <div class="alert alert-success"><button class="close" data-dismiss="alert"></button>';
-    echo $this->session->flashdata('salah');
+    else if(isset($fail)){
+    	echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button>';
+    echo $fail;
     echo '</div>'; 
     } ?> 
 	 <div class="container" style="padding:64px;">
-		 <h2>Login</h2>
+		 <h2>Forgot Your Password</h2>
 		 <div class="col-md-9 log">			 
 				 <p>Welcome to Madame Antoine Florist</p>
-				 <?php echo form_open('signIn/sign_in', 'class="form-horizontal"');?>
+				 <?php echo form_open('SignUp/resetpassword', 'class="form-horizontal"');?>
+				 <input type ="hidden" name="user_info" value= <?php echo $user_info?> >
 		<div class="form-group">
-			<label class="control-label col-sm-3" for="username">Username</label>
+			<label class="control-label col-sm-3" for="username">Please enter your new password</label>
+			<br>
 			<div class="col-sm-8">
 				<?php 
 					$data = array(
-					        'name'          => 'username',
-					        'placeholder'	=> 'Username',
+					        'name'          => 'password',
+					        'placeholder'	=> 'Password',
 					        'required'		=> 'true',
-					        'type'			=> 'text',				   
+					        'type'			=> 'password',				   
 					        'class'     	=> 'text-box'
 					); 
 					echo form_input($data);
 				?>
 			</div>
 		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-3" for="password">Password</label>
+
+			<label class="control-label col-sm-3" for="username">Please confirm your new password</label>
+			<br>
 			<div class="col-sm-8">
 				<?php 
 					$data = array(
-					        'name'          => 'password',
-					        'placeholder'	=> 'Password',
-					        'required'		=> 'true',				   
+					        'name'          => 'passwordconf',
+					        'placeholder'	=> 'Password Confirmation',
+					        'required'		=> 'true',
+					        'type'			=> 'password',				   
 					        'class'     	=> 'text-box'
 					); 
-					echo form_password($data);
+					echo form_input($data);
 				?>
-
 			</div>
 		</div>
+
 		<div class="form-group">
 			<label class="control-label col-sm-3"></label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'signin',
-					        'value'			=> 'Sign In',					 			   
+					        'name'          => 'submit',
+					        'value'			=> 'Submit',					 			   
 					        'class'     	=> 'text-box'
 					);
 					echo form_submit($data); 
-					/*$data = array(
-							'name'          => 'signup',
-					        'value'			=> 'Create an Account',					 			   
-					        'class'     	=> 'a',
-					        'style'			=> 'background-color:none;'
-						);
-					echo form_submit($data);*/
-
+				
 					?>									
-					<a class="acount-btn" href="<?php echo site_url("SignUp/index"); ?>">Create an Account</a>
 					
-				<a href="<?php echo site_url("SignUp/forgot_index"); ?>" class="col-sm-12">Forgot your password</a>
 
 			</div>
 		</div>

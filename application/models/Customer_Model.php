@@ -37,13 +37,20 @@ class Customer_Model extends CI_Model{
 	}
 
 	public function getUser($uname){
-		$this->db->select('email,name,hash,salt');
+		$this->db->select('customerid,email,name,hash,salt');
 		$this->db->where('email',$uname);
 		$query = $this->db->get('customers');
 		return $query->row();
 
 	}
 
+	public function getUserByID($id){
+		$this->db->select('customerid,email,name,hash,salt');
+		$this->db->where('customerid',$id);
+		$query = $this->db->get('customers');
+		return $query->row();
+
+	}
 
 	public function getAllID(){
 		$this->db->select('customerID');
@@ -52,9 +59,70 @@ class Customer_Model extends CI_Model{
 
 	}
 
+	public function insertToken($user_id)  
+   {    
+     $token = substr(sha1(rand()), 0, 30);   
+     $date = date('Y-m-d');  
+       
+     $string = array(  
+         'token'=> $token,  
+         'customerID'=>$user_id,  
+         'created'=>$date  
+       );  
+     $query = $this->db->insert_string('tokens',$string);  
+     $this->db->query($query);  
+     return $token . $user_id;  
+       
+   }  
+   
+   public function isTokenValid($token)  
+   {  
+     $tkn = substr($token,0,30);  
+     $uid = substr($token,30);     
+       
+     $q = $this->db->get_where('tokens', array(  
+       'tokens.token' => $tkn,   
+       'tokens.customerID' => $uid), 1);               
+           
+     if($this->db->affected_rows() > 0){  
+       $row = $q->row();         
+         
+       $created = $row->created;  
+       $createdTS = strtotime($created);  
+       $today = date('Y-m-d');   
+       $todayTS = strtotime($today);  
+         
+       if($createdTS != $todayTS){  
+         return false;  
+       }  
+         
+       $user_info = $this->getUserByID($row->customerID);  
+       return $user_info;  
+         
+     }else{  
+       return false;  
+     }  
+       
+   }   
+   
+   public function updatePassword($post)  
+   {    
+     $this->db->where('customerID', $post['customerID']);  
+     $this->db->update('customers', array('hash' => $post['password']));      
+     return true;  
+   }   
+   //End: method tambahan untuk reset code  
+   
+   public function dropToken($id){
+   	$this->db->where('customerID',$id);
+   	$this->db->delete('tokens');
+   }
+
 
 	public function add($gender,$email,$name,$dob,$salt,$hash)
 	{
+		
+		$allID = getAllID();
 		
 
 		$customer = array(
