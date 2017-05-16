@@ -38,7 +38,7 @@ class Admin extends CI_Controller {
 
 			$crud->set_table('customers');
 			$crud->set_subject('Customer');
-			$crud->unset_columns('Hash','Salt');
+			$crud->unset_columns('hash','salt');
 
 			$output = $crud->render();
 
@@ -49,8 +49,8 @@ class Admin extends CI_Controller {
 	{
 			$crud = new grocery_CRUD();
 
-			$crud->set_relation('customerNumber','customers','{contactLastName} {contactFirstName}');
-			$crud->display_as('customerNumber','Customer');
+			$crud->set_relation('customerID','customers','name');
+			$crud->display_as('customerID','Customer');
 			$crud->set_table('orders');
 			$crud->set_subject('Order');
 			$crud->unset_add();
@@ -84,13 +84,13 @@ class Admin extends CI_Controller {
 	{
 		$crud = new grocery_CRUD();
 
-		$crud->set_table('film');
-		/*$crud->set_relation_n_n('actors', 'film_actor', 'actor', 'film_id', 'actor_id', 'fullname','priority');
-		$crud->set_relation_n_n('category', 'film_category', 'category', 'film_id', 'category_id', 'name');
-		$crud->unset_columns('special_features','description','actors');
+		$crud->set_relation('productID','products','productName');
+			$crud->display_as('productID','Products');
+			$crud->set_table('order-details');
+			$crud->set_subject('OrderDetails');
+			$crud->unset_add();
+			$crud->unset_delete();
 
-		$crud->fields('title', 'description', 'actors' ,  'category' ,'release_year', 'rental_duration', 'rental_rate', 'length', 'replacement_cost', 'rating', 'special_features');
-*/
 		$output = $crud->render();
 
 		$this->_example_output($output);
