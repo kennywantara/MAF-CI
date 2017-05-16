@@ -31,9 +31,9 @@
    function addtocart(p_id)
     {
     	var id = p_id;
-        var price = $('#price00'+p_id).attr('rel');
-        var picture = $('#picture00'+p_id).attr('rel');
-        var name  = $('#name00'+p_id).attr('rel');
+        var price = $('#price'+p_id).attr('rel');
+       var picture = $('#picture'+p_id).attr('rel');
+        var name  = $('#name'+p_id).attr('rel');
 
         console.log(price);
         console.log(picture);
@@ -42,7 +42,7 @@
             $.ajax({
                     type: "POST",
                     url: "<?php echo site_url('products/add');?>",
-                    data: "id=00"+id+"&picture="+picture+"&name="+name+"&price="+price,
+                    data: "id="+id+"&picture="+picture+"&name="+name+"&price="+price,
                     success: function (response) {
                       window.location.href = '<?php echo site_url('products/checkout');?>'
                     }
