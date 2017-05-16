@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Order_Model extends CI_Model{
+class OrderDetail_Model extends CI_Model{
 
 	
 	
@@ -22,11 +22,11 @@ class Order_Model extends CI_Model{
 		$this->db->update('orders',$order,array('id' => $orderId));
 	}
 
-	public function get()
+	public function getByID($orderID)
 	{
 		
-		$this->db->select('orderID','customerID','deliveryAddress','status','totalPrice');
-		$query = $this->db->get('orders');
+		$this->db->select('orderID','productID','quantity','price');
+		$query = $this->db->get('order-details');
 		return $query->result();
 	}
 
@@ -37,17 +37,18 @@ class Order_Model extends CI_Model{
 		return $query->row();
 	}
 
-	public function add($custid,$address,$status,$price)
+	public function add($orderid,$prodid,$quantity,$price)
 	{
 		
 
 		$order = array(
-			 'customerID' => $custid , 
-			 'deliveryAddress' => $address,
-			 'status' => $status,
-			  'totalPrice' => $price);
+			 'orderID' => $orderid,
+			 'productID' => $prodid , 
+			 'quantity' => $quantity,
+			 'price' => $price
+			  );
 
-		$this->db->insert('orders',$order);
+		$this->db->insert('order-details',$order);
 	}
 
 	public function delete($delid)

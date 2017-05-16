@@ -70,6 +70,7 @@
 			 <?php } if (!empty($cart)){  
 			 	$attributes = array('name' => 'myform');
 			 	 echo form_open('products/payment',$attributes);?>
+			 	 <input type="hidden" name="total" value="<?php echo $total;?>">
 				<div class="form-group">
 							<label class="control-label col-sm-3">Notes</label>
 							<textarea name="notes" required cols="50" rows="5"></textarea>
@@ -91,7 +92,7 @@
 			</ul> 
 			<div class="clearfix"></div>
 			<div class="clearfix"></div>
-			<a onclick="document.forms[1].submit();return false;" class="order" href="#">Proceed to Payment</a>
+			<a onclick="document.forms[2].submit();return false;" class="order" href="#">Proceed to Payment</a>
 			<?php echo form_close() ?>
 		</div>
 

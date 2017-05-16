@@ -6,6 +6,9 @@ class Products extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Product_model');
+		$this->load->model('Order_model');
+		$this->load->model('OrderDetail_model');
+		$this->load->library('form_validation');
 	}
 
 	
@@ -81,25 +84,48 @@ class Products extends CI_Controller {
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
-		$data['cart']  = $this->cart->contents();
-		if (empty($data['cart'])){
+		$cart  = $this->cart->contents();
+		$this->form_validation->set_rules('deliveryAddress', 'DeliveryAddress', 'required|trim',  
+			array(
+                'required'      => 'You have not provided %s.',
+                    ));
+		if (empty($cart)){
 			$data['login']  = "Your cart cannot be empty";
 			$this->load->view('page/checkout',$data);
 		}
 		else if (!isset($_SESSION['name'])){
 			$this->session->set_flashdata('needlogin', 'You need to login first');  
 			redirect('signin/index');}
-		else if($this->form_validation->run() == FALSE){
-			$this->load->library('form_validation');
+		else if($this->form_validation->run() == true){
+			
+			$address = $this->input->post('deliveryAddress');
+			$note = $this->input->post('notes');
+			$price = $this->input->post('total');
+			$this->load->model('customer_model');
+			$status = "WaitingConfirmation";
+			$custID = $this->customer_model->getUser($_SESSION['email']);
+			$id = $custID->customerid;
+			$this->Order_model->add($id,$address,$status,$price);
+			$orderID = $this->Order_model->getLatest();
+
+			$cart = $this->cart->contents();
+			foreach ($cart as $data) {
+				$this->OrderDetail_model->add($orderID->orderID,$data['id'],$data['qty'],$data['price']);
+			}
+
+			$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$data['orderID'] = $orderID->orderID;
+
+
+			$this->load->view('page/payment',$data);
 		
-		$this->form_validation->set_rules('deliveryAddress', 'DeliveryAddress', 'required|trim',  
-			array(
-                'required'      => 'You have not provided %s.',
-        ));
-		$this->load->view('page/checkout',$data);
+		
 			}
 		else{
-			$this->load->view('page/checkout',$data);
+		$this->load->view('page/checkout',$data);
 		}
 
 	}

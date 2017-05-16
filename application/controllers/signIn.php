@@ -41,7 +41,7 @@ class SignIn extends CI_Controller {
 		{
 			$login = array(
 				'name' => $user->name,
-				'admin' => FALSE  );
+				'email' => $user->email );
 			$this->session->set_userdata($login);
 			redirect('Home/index');
 		}
