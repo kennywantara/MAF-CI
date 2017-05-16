@@ -24,7 +24,8 @@ $.ajax({
       url: "<?php echo site_url('products/remove');?>",
       data: "rowid="+rowid,
       success: function (response) {
-          $("#rowid"+rowid).remove("#rowid"+rowid); 
+          $("#rowid"+rowid).remove("#rowid"+rowid);
+          $(".cart-header"+rowid).remove(".cart-header"+rowid); 
           }           
       });
 /*}*/

@@ -13,6 +13,11 @@
 	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button><b>You\'ve made some errors! Please check them below: <br></b>' ;
     echo validation_errors();
     echo '</div>';      }
+    if($this->session->flashdata('needlogin')){
+    	echo ' <div class="alert alert-info"><button class="close" data-dismiss="alert"></button>' ;
+    echo $this->session->flashdata('needlogin');
+    echo '</div>';      }
+    
     //error dari username/password nya salah
     else if(isset($error_message)) {
     	echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button>';

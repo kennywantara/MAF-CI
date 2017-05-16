@@ -9,17 +9,32 @@
  ?>
 
 <div class="container">
+	<?php if (isset($login)){
+			echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button>' ;
+			echo $login;
+			echo '</div>';
+	}
+	if(validation_errors()){
+	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button> ' ;
+    echo validation_errors();
+    echo '</div>';    }
+	?>
 	<div class="check-sec">	 
 
 		<div class="col-md-9 cart-items">
 			<h1>My Shopping Bag </h1>
 				
-			<?php foreach ($cart as $data) {
+
+			<?php 
+
+			
+
+			foreach ($cart as $data) {
 				 	
 				$i++;
                      ?>
-			<div class="cart-header<?php echo $data['id']; ?>">
-				<div class="close<?php echo $data['id']; ?>">  </div>
+			<div class="cart-header<?php echo $data['rowid']; ?>">
+				<div class="close<?php echo $data['id']; ?>"> X  </div>
 				<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							<img src="<?php echo base_url().'/'.$data['picture'];?>" class="img-responsive" alt=""/>
@@ -40,53 +55,44 @@
 								 <div class="clearfix"></div>
 							</div>								
 					   </div>
-					   	<div class="form-group">
-							<label class="control-label col-sm-3">Notes</label>
-							<textarea name="deliveryAddress" cols="50" rows="5"></textarea>
-						</div>
-					   	<div class="form-group">
-							<label class="control-label col-sm-3">Delivery Address</label>
-							<textarea name="deliveryAddress" cols="50" rows="5"></textarea>
-						</div>
-					   <div class="clearfix"></div>
+					   
 											
 				  </div>
 			 </div>
 			 <script>$(document).ready(function(c) {
 					$('.close<?php echo $data['id']; ?>').on('click', function(c){
-						$('.cart-header<?php echo $data['id']; ?>').fadeOut('slow', function(c){
-							$('.cart-header<?php echo $data['id']; ?>').remove();
+						$('.cart-header<?php echo $data['rowid']; ?>').fadeOut('slow', function(c){
+							$('.cart-header<?php echo $data['rowid']; ?>').remove();
 						});
 						});	  
 					});
 			   </script>
-			 <?php } ?>
+			 <?php } if (!empty($cart)){  
+			 	$attributes = array('name' => 'myform');
+			 	 echo form_open('products/payment',$attributes);?>
+				<div class="form-group">
+							<label class="control-label col-sm-3">Notes</label>
+							<textarea name="notes" required cols="50" rows="5"></textarea>
+						</div>
+					   	<div class="form-group">
+							<label class="control-label col-sm-3">Delivery Address</label>
+							<textarea name="deliveryAddress" required cols="50" rows="5"></textarea>
+						</div>
+					   <div class="clearfix"></div>
+			<?php }?>
 			
 		</div>
 				<div class="col-md-3 cart-total">
-			<a class="continue" href="">Continue shopping</a>
-			<div class="price-details">
-				<h3>Price Details</h3>
-				<span>Total</span>
-				<span class="total1">6200.00</span>
-				<span>Discount</span>
-				<span class="total1">10%(Festival Offer)</span>
-				<span>Delivery Charges</span>
-				<span class="total1">150.00</span>
-				<div class="clearfix"></div>				 
-			</div>	
+			<a class="continue" href="<?php echo site_url('products/index');?>">Continue shopping</a>
+				
 			<ul class="total_price">
 			   <li class="last_price"> <h4>TOTAL</h4></li>	
 			   <li class="last_price"><span><?php echo $total;?></span></li>			   
 			</ul> 
 			<div class="clearfix"></div>
 			<div class="clearfix"></div>
-			<a class="order" href="#">Place Order</a>
-			<div class="total-item">
-				<h3>OPTIONS</h3>
-				<h4>COUPONS</h4>
-				<a class="cpns" href="#">Apply Coupons</a>
-			</div>
+			<a onclick="document.forms[1].submit();return false;" class="order" href="#">Proceed to Payment</a>
+			<?php echo form_close() ?>
 		</div>
 
 		<div class="clearfix"> </div>

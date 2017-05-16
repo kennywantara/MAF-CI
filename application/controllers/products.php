@@ -81,7 +81,27 @@ class Products extends CI_Controller {
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
-		$this->load->view('page/payment',$data);		
+		$data['cart']  = $this->cart->contents();
+		if (empty($data['cart'])){
+			$data['login']  = "Your cart cannot be empty";
+			$this->load->view('page/checkout',$data);
+		}
+		else if (!isset($_SESSION['name'])){
+			$this->session->set_flashdata('needlogin', 'You need to login first');  
+			redirect('signin/index');}
+		else if($this->form_validation->run() == FALSE){
+			$this->load->library('form_validation');
+		
+		$this->form_validation->set_rules('deliveryAddress', 'DeliveryAddress', 'required|trim',  
+			array(
+                'required'      => 'You have not provided %s.',
+        ));
+		$this->load->view('page/checkout',$data);
+			}
+		else{
+			$this->load->view('page/checkout',$data);
+		}
+
 	}
 	
 	public function confirmPayment(){
