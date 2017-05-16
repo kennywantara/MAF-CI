@@ -35,7 +35,7 @@ class Admin extends CI_Controller {
 	public function customers_management()
 	{
 			$crud = new grocery_CRUD();
-
+			$crud->columns('customerID','gender','email','name','dob','salt','hash');
 			$crud->set_table('customers');
 			$crud->set_subject('Customer');
 			$crud->unset_columns('hash','salt');
@@ -48,7 +48,7 @@ class Admin extends CI_Controller {
 	public function orders_management()
 	{
 			$crud = new grocery_CRUD();
-
+			$crud->columns('orderID','customerID','deliveryAddress','status','totalPrice');
 			$crud->set_relation('customerID','customers','name');
 			$crud->display_as('customerID','Customer');
 			$crud->set_table('orders');
@@ -64,7 +64,7 @@ class Admin extends CI_Controller {
 	public function products_management()
 	{
 			$crud = new grocery_CRUD();
-
+			$crud->columns('productID','productName','productCategory','productPrice','productDescription','productPicture');
 			$crud->set_table('products');
 			$crud->set_subject('Product');
 			$crud->unset_columns('productDescription');
@@ -84,8 +84,10 @@ class Admin extends CI_Controller {
 	{
 		$crud = new grocery_CRUD();
 
+		$crud->columns('orderID','productID','quantity','price');
 		$crud->set_relation('productID','products','productName');
 			$crud->display_as('productID','Products');
+
 			$crud->set_table('order-details');
 			$crud->set_subject('OrderDetails');
 			$crud->unset_add();

@@ -60,4 +60,9 @@ class SignUp extends CI_Controller {
 			$this->load->view('page/sign-up',$data);
 		}
 	}
+
+	public function forgot_your_password()
+	{
+
+	}
 }
