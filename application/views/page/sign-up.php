@@ -5,7 +5,9 @@
 </head>
 <body>
 <?php echo $header; ?>
-<?php if(validation_errors()){
+<?php 
+
+if(validation_errors()){
 	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button><b>You\'ve made some errors! Please check them below: <br></b>' ;
     echo validation_errors();
     echo '</div>';                                 

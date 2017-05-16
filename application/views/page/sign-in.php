@@ -8,6 +8,7 @@
 
 <div class="container"></div>
 <div class="login_sec">
+	<?php
 	if(validation_errors()){
 	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button><b>You\'ve made some errors! Please check them below: <br></b>' ;
     echo validation_errors();
@@ -17,7 +18,7 @@
     	echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button>';
     echo $error_message;
     echo '</div>';   
-    }   
+    }  ?> 
 	 <div class="container" style="padding:64px;">
 		 <h2>Login</h2>
 		 <div class="col-md-9 log">			 
