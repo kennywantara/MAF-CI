@@ -83,4 +83,12 @@ class Products extends CI_Controller {
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
 		$this->load->view('page/payment',$data);		
 	}
+	
+	public function confirmPayment(){
+		$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$this->load->view('page/confirm-payment',$data);		
+	}
 }

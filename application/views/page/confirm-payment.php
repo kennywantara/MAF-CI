@@ -7,31 +7,69 @@
 	<?php echo $script;?>
 	<?php echo $header;
  ?>
-	 <div class="container" style="padding:64px;">
-		 <h2>Payment Confirmation</h2>
+	 <div class="container contact" style="padding:64px;">
+		 <h3>Payment Confirmation</h3>
 		 <div class="col-md-6 log">			 
 				 <?php echo form_open('signIn/sign_in', 'class="form-horizontal"');?>
 		<div class="form-group">
-			<label class="control-label col-sm-3" for="username">Rose</label>
+			<label class="control-label col-sm-3" for="username">Order ID</label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'Rose',				   
-					        'class'     	=> 'text-box col-sm-1',
-					        'type' 			=> 'number'
+					        'name'          => 'orderID',				   
+					        'class'     	=> 'text-box',
+					        'type' 			=> 'number',
+					        'style'			=> 'width:90%'
 					); 
 					echo form_input($data);
 				?>
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-3" for="tulip">Tulip</label>
+			<label class="control-label col-sm-3" for="tulip">Select Your Bank</label>
+			<div class="col-sm-9 text-box">
+
+				<?php 
+					
+				$options = array(
+				        'bri'         => 'BRI',
+				        'bca'           => 'BCA',
+				        'mandiri'         => 'Bank Mandiri',
+				        'other'        => 'Other',
+				);
+
+				$bank_option = array('bri', 'Other');
+				echo form_dropdown('bank', $options, 'Choose your bank');
+
+					
+				?>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="Fererro">Transfer Method</label>
+			<div class="col-sm-9">
+				<?php 
+				$options = array(
+				        'atm'         => 'ATM',
+				        'ebank'           => 'E-Banking',
+				        'counterBank'         => 'Counter Bank',
+				        'mBanking'        => 'm-Banking',
+				);
+
+				echo form_dropdown('transfer_method', $options, 'other');
+				?>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="tulip">Name</label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'Tulip',
-					        'class'			=> 'text-box col-sm-1',	   
-					        'type' 			=> 'number'
+					        'name'          => 'name',		   
+					        'class'     	=> 'text-box col-sm-1',
+					        'type' 			=> 'text'
 					); 
 					echo form_input($data);
 				?>
@@ -39,13 +77,30 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-3" for="Fererro">Chocolate</label>
+			<label class="control-label col-sm-3" for="tulip">Date</label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'Chocolate',		   
+					        'name'          => 'date',
 					        'class'     	=> 'text-box col-sm-1',
-					        'type' 			=> 'number'
+					        'type' 			=> 'date'
+					); 
+
+					echo form_input($data);
+
+				?>
+
+			</div>
+		</div>
+		<div class="form-group">
+			<label class="control-label col-sm-3" for="tulip">Amount Transfer</label>
+			<div class="col-sm-9">
+				<?php 
+					$data = array(
+					        'name'          => 'amountTransfer',		   
+					        'class'     	=> 'text-box',
+					        'type' 			=> 'number',
+					        'style'			=> 'border: 1px solid #D6D6D6; width:90%;'
 					); 
 					echo form_input($data);
 				?>
@@ -53,21 +108,7 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-3" for="tulip">Teddy Bear</label>
-			<div class="col-sm-9">
-				<?php 
-					$data = array(
-					        'name'          => 'bear',		   
-					        'class'     	=> 'text-box col-sm-1',
-					        'type' 			=> 'number'
-					); 
-					echo form_input($data);
-				?>
-
-			</div>
-		</div>
-		<div class="form-group">
-			<label class="control-label col-sm-3" for="tulip">Notes</label>
+			<label class="control-label col-sm-3" for="tulip">Upload Transfer Receipt</label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
@@ -88,8 +129,8 @@
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'addToCart',
-					        'value'			=> 'Add to Cart',					 			   
+					        'name'          => 'confirmPayment',
+					        'value'			=> 'Confirm Payment',					 			   
 					        'class'     	=> 'text-box'
 					);
 					echo form_submit($data); 

@@ -1677,8 +1677,18 @@ outline: none;
 color: #5d5959;
 margin-bottom:2em;
 }
-
-.log form input[type="text"],.log form input[type="password"], input[type="date"]{
+form input[type="date"]{
+width: 90%;
+height: 40px;
+padding: 8px;
+font-size: 1em;
+font-weight: 400;
+border: 1px solid #D6D6D6;
+outline: none;
+color: #5d5959;
+margin-bottom:2em;
+}
+.log form input[type="text"],.log form input[type="password"]{
 width: 90%;
 padding: 8px;
 font-size: 1em;
@@ -1688,16 +1698,7 @@ outline: none;
 color: #5d5959;
 margin-bottom:2em;
 }
-form input[type=date]::-webkit-calendar-picker-indicator {
-    width: 90%;
-padding: 8px;
-font-size: 1em;
-font-weight: 400;
-border: 1px solid #D6D6D6;
-outline: none;
-color: #5d5959;
-margin-bottom:2em;
-}
+
 .log form input[type="submit"]{
 display:inline-block;
   background: #E5C100;
