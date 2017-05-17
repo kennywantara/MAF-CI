@@ -32,16 +32,21 @@ class OrderDetail_Model extends CI_Model{
 
 	public function getProduct($orderID){
 		
-		$query =  
-			$this->db
-			  ->select('*')
-              ->from('products')
-              ->join('order-details', 'products.orderID = order-details.orderID', 'inner')
-              ->where('orderID', $orderID)
-              ->get();
+		$this->db->select('od.orderID, od.productID, od.quantity, od.price, p.productName,p.productpicture');
+		$this->db->from('order-details AS od');// I use aliasing make joins easier
+		$this->db->join('products AS p', 'p.productID = od.productID', 'INNER');
+		$this->db->where('od.orderID' ,$orderID);
+		$query = $this->db->get();
+
 
 		return $query->result();
 
+/*		select od.orderID, od.productID, od.quantity, od.price, p.productName from
+`order-details` `od` 
+join orders `o` on (o.orderID=od.orderID)
+join products `p` on (p.productID=od.productID)
+where o.orderID = 2;
+*/
 	}
 
 	public function getLatest(){

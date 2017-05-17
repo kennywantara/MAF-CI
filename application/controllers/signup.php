@@ -62,10 +62,14 @@ class SignUp extends CI_Controller {
     
 		$this->Customer_model->add($gender,$email,$name,$dob,$salt,$hash);
     $login = array(
-        'name' => $user->name,
-        'email' => $user->email );
+        'name' => $name,
+        'email' => $email );
       $this->session->set_userdata($login);
-		$this->load->view('page/home', $data);
+		$this->load->model('Product_model');
+    $data['data'] =  $this->Product_model->getFour();
+
+    $this->load->view('page/home', $data);
+    
     }
 		else{
 			$this->load->view('page/sign-up',$data);

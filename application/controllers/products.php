@@ -120,7 +120,7 @@ class Products extends CI_Controller {
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
 		$data['orderID'] = $orderID->orderID;
 
-
+			 $this->cart->destroy();
 			$this->load->view('page/payment',$data);
 		
 		

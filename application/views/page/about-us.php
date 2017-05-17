@@ -7,15 +7,16 @@
 <?php echo $header; ?>
 <div class="pages">
 		<div class="container">
-
+<br>
 			 <h2 class="top">About Us</h2>
 			 </br>
 			 <div class="row col-md-6 col-md-offset-3">
-			 	<p>1. Choose </p>
-				<p>2. If you interest with our bouquet collection, click the flowers you like to view details. Then if you are ready to book it, click add to cart button and continue with checkout. </p>
-				<p>3. Fill the information about the sender and receiver to complete the order. Book your bouquet min 1 week before delivery date.</p>
-				<p>4. Click "confirm payment" on the top of the page after youve done the payment to our bank account. Enter your order number and payment details.</p>
-				<p>5. Your order is completed. Wait for your order to arrive to the address you provided.</p>
+			 	<p>Madame Antoine Florist is a trusted 24 hour delivery flower site which can be replied upon to send flowers, hampers and gifts to their loved ones.
+				<br><br><br>
+		         <br>
+		         We believe that flowers have the ability to create an emotional experience, no matter the occasion. We welcome the opportunity to help you send a gift of fresh flowerts that delivers just the right message. On time, every time. And always at a great price.
+
+			 	</p>
 			 </div>
 					
 			 <div class="clearfix"> </div>

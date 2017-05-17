@@ -60,6 +60,8 @@ class SignIn extends CI_Controller {
 
 	public function sign_out(){
 		$this->session->unset_userdata('name');
+		$this->session->unset_userdata('email');
+		 $this->cart->destroy();
 		redirect('Home/index');
 	}
 

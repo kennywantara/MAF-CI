@@ -4,7 +4,17 @@
 	<?php echo $style; ?>
 </head>
 <body>
-<?php echo $header; ?>
+<?php echo $header; 
+if($this->session->flashdata('sukses')){
+    	echo ' <div class="alert alert-success"><button class="close" data-dismiss="alert"></button>' ;
+    echo $this->session->flashdata('sukses');
+    echo '</div>';      }
+if(validation_errors()){
+	   echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button><b>You\'ve made some errors! Please check them below: <br></b>' ;
+    echo validation_errors();
+    echo '</div>';      }
+
+    ?>
 <div class="contact">
 	  <div class="container">
 		 

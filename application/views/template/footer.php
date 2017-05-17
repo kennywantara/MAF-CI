@@ -5,7 +5,9 @@
      <div class="footer-grids">
        <div class="col-md-3 about-us">
          <h3>About Us</h3>
-         <p>Maecenas nec auctor sem. Vivamus porttitor tincidunt elementum nisi a, euismod rhoncus urna. Curabitur scelerisque vulputate arcu eu pulvinar. Fusce vel neque diam</p>
+         <p>Maecenas nec auctor sem. Vivamus porttitor tincidunt elementum nisi a, euismod rhoncus urna. Curabitur scelerisque vulputate arcu eu pulvinar. Fusce vel neque diam
+
+         </p>
        </div>
        <div class="col-md-3 ftr-grid">
           <h3>Information</h3>
@@ -23,10 +25,10 @@
           </ul>         
        </div>
        <div class="col-md-3 ftr-grid">
-          <h3>Categories</h3>
+          <h3>Others</h3>
           <ul class="nav-bottom">
-            <li><a href="#">Wall Lights</a></li>
-            <li><a href="#">Protectors</a></li> 
+            <li><a href="<?php echo site_url("Home/howtoorder"); ?>">How To Order</a></li>
+            <li><a href="<?php echo site_url("Home/aboutus"); ?>">About Us</a></li> 
           </ul>         
        </div>
        <div class="clearfix"></div>
