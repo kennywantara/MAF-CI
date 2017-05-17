@@ -24,7 +24,6 @@
 			
 			<tbody>
 			<?php
-			var_dump($data);
 				foreach ($data as $line) {
 					echo"<tr>
 	                <td><a href='".site_url("products/orderdetails/".$line->orderID)."'>".$line->orderID."</a></td>

@@ -30,6 +30,20 @@ class OrderDetail_Model extends CI_Model{
 		return $query->result();
 	}
 
+	public function getProduct($orderID){
+		
+		$query =  
+			$this->db
+			  ->select('*')
+              ->from('products')
+              ->join('order-details', 'products.orderID = order-details.orderID', 'inner')
+              ->where('orderID', $orderID)
+              ->get();
+
+		return $query->result();
+
+	}
+
 	public function getLatest(){
 		$this->db->select('orderID');
 		$this->db->order_by("orderID", "desc");

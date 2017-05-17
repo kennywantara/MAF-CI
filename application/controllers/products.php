@@ -155,4 +155,14 @@ class Products extends CI_Controller {
 		$data['data'] = $this->Order_model->getOrder($customerid->customerid);
 		$this->load->view('page/profile',$data);	
 	}
+
+	public function orderdetails(){
+		$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$orderID = $this->uri->segment(3);
+		$data['line'] = $this->OrderDetail_model->getProduct($orderID);
+		$this->load->view('page/orderdetail',$data);	
+	}
 }
