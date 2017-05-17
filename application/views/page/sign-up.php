@@ -138,7 +138,7 @@ if(validation_errors()){
 					
 
 			</div>
-				<a href="">Forgot your password</a>
+			
 		</div>
 	<?php echo form_close(); ?>
 		 </div>	

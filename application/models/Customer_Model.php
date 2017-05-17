@@ -121,12 +121,7 @@ class Customer_Model extends CI_Model{
 
 	public function add($gender,$email,$name,$dob,$salt,$hash)
 	{
-		
-		$allID = getAllID();
-		
-
 		$customer = array(
-			'customerID' => $Id, 
 			'gender' => $gender,
 			'email' => $email, 
 			 'name' => $name,
@@ -134,7 +129,6 @@ class Customer_Model extends CI_Model{
 			 'salt' => $salt,
 			 'hash' => $hash);
 			
-
 		$this->db->insert('customers',$customer);
 	}
 
