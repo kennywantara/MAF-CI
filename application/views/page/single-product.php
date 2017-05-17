@@ -16,7 +16,7 @@
 					<div class="single-para">
 						<div class="arrival-info">
 						    <?php echo"<h4 id='name".$line->productID."'' rel='".$line->productName."''>".$line->productName."</h4>
-						    <p>".$line->productCategory."</p>
+						    <p id='name".$line->productID."'' rel='".$line->productCategory."''>".$line->productCategory."</p>
 						    <h5 id='price".$line->productID."' rel='".$line->productPrice."'>".$line->productPrice."</h5>
 						    <p>".$line->productDescription."</p> 
 						    <button onclick='javascript:addtocart(".$line->productID.")'class='btn btn-danger'>Add to Cart</button>";
@@ -34,6 +34,7 @@
         var price = $('#price'+p_id).attr('rel');
        var picture = $('#picture'+p_id).attr('rel');
         var name  = $('#name'+p_id).attr('rel');
+        var category =$('#cat'+p_id).attr('rel');
 
         console.log(price);
         console.log(picture);
@@ -42,7 +43,7 @@
             $.ajax({
                     type: "POST",
                     url: "<?php echo site_url('products/add');?>",
-                    data: "id="+id+"&picture="+picture+"&name="+name+"&price="+price,
+                    data: "id="+id+"&picture="+picture+"&name="+name+"&price="+price+"&category"+category,
                     success: function (response) {
                       window.location.href = '<?php echo site_url('products/checkout');?>'
                     }

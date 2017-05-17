@@ -7,7 +7,7 @@
 <?php echo $header; ?>
 <div class="pages">
 		<div class="container">
-<br>
+<br><br><br><br>
 			 <h2 class="top">About Us</h2>
 			 </br>
 			 <div class="row col-md-6 col-md-offset-3">
@@ -15,7 +15,7 @@
 				<br><br><br>
 		         <br>
 		         We believe that flowers have the ability to create an emotional experience, no matter the occasion. We welcome the opportunity to help you send a gift of fresh flowerts that delivers just the right message. On time, every time. And always at a great price.
-
+		         <br><br>
 			 	</p>
 			 </div>
 					

@@ -10,18 +10,18 @@
 	 <div class="container contact" style="padding:64px;">
 		 <h3>Payment Confirmation</h3>
 		 <div class="col-md-6 log">			 
-				 <?php echo form_open('signIn/sign_in', 'class="form-horizontal"');?>
+				 <?php echo form_open_multipart('products/confirmYourPayment', 'class="form-horizontal"');?>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="username">Order ID</label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
-					        'name'          => 'orderID',				   
+					        'name'          => 'order',				   
 					        'class'     	=> 'text-box',
 					        'type' 			=> 'number',
 					        'style'			=> 'width:90%',
 					        'value'			=> $order,
-					        'disabled'		=> 'TRUE'
+					        'readonly'		=> 'TRUE'
 					); 
 					echo form_input($data);
 				?>
@@ -59,7 +59,7 @@
 				        'mBanking'        => 'm-Banking',
 				);
 
-				echo form_dropdown('transfer_method', $options, 'other');
+				echo form_dropdown('transfermethod', $options, 'other');
 				?>
 
 			</div>
@@ -112,17 +112,7 @@
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="tulip">Upload Transfer Receipt</label>
 			<div class="col-sm-9">
-				<?php 
-					$data = array(
-					        'name'          => 'bear',		   
-					        'class'     	=> 'text-box col-sm-9',
-					        'type' 			=> 'text',
-					        'cols'			=> '8',
-					        'rows'			=> '4',
-					        'style'			=> 'border: 1px solid #D6D6D6'
-					); 
-					echo form_textarea($data);
-				?>
+				<input type="file" name="struk" size="20" />
 
 			</div>
 		</div>

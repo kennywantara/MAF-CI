@@ -46,6 +46,7 @@ class Products extends CI_Controller {
                 'name' => $this->input->post('name'),
                 'price' => $this->input->post('price'),
                 'picture' => $this->input->post('picture'),
+                'category' => $this->input->post('category'),
                 'qty' => 1
                 );
 		var_dump($insert_data);
@@ -119,6 +120,7 @@ class Products extends CI_Controller {
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
 		$data['orderID'] = $orderID->orderID;
+		$data['price'] = $orderID->totalPrice;
 
 			 $this->cart->destroy();
 			$this->load->view('page/payment',$data);
@@ -165,4 +167,48 @@ class Products extends CI_Controller {
 		$data['line'] = $this->OrderDetail_model->getProduct($orderID);
 		$this->load->view('page/orderdetail',$data);	
 	}
+
+	public function confirmYourPayment(){
+
+		
+		
+		$config['upload_path']          = './img/';
+                $config['allowed_types']        = 'gif|jpg|png|jpeg';
+             
+
+                $this->load->library('upload', $config);
+
+                if ( ! $this->upload->do_upload('struk'))
+                {
+                        $data['error'] = array('error' => $this->upload->display_errors());
+                        $data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+                        $this->load->view('page/confirm-payment', $data);
+                }
+                else
+                {
+                		$data['style'] = $this->load->view('include/style',NULL,TRUE);
+						$data['script'] = $this->load->view('include/script',NULL,TRUE);
+						$data['header'] = $this->load->view('template/header',NULL,TRUE);
+						$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+                        
+                        $picture = $this->upload->data();
+						$orderid = $this->input->post('order');
+						$bank = $this->input->post('bank');
+						$transferMethod = $this->input->post('transfermethod');
+						$date = $this->input->post('date');
+						$amount = $this->input->post('amountTransfer');
+                        $data['line'] = $this->Order_model->addConfirmation($orderid,$bank,$transferMethod,$date,$amount,"img/".$picture['file_name']);
+						$customerid = $this->customer_model->getUser($_SESSION['email']);
+		$data['data'] = $this->Order_model->getOrder($customerid->customerid);
+		$this->load->view('page/profile',$data);	
+                }
+
+
+	
+	}
+
+	
 }

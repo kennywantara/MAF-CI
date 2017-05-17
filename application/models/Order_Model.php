@@ -40,7 +40,7 @@ class Order_Model extends CI_Model{
 	}
 
 	public function getLatest(){
-		$this->db->select('orderID');
+		$this->db->select('orderID,totalPrice');
 		$this->db->order_by("orderID", "desc");
 		$query = $this->db->get('orders',1);
 		return $query->row();
@@ -64,4 +64,20 @@ class Order_Model extends CI_Model{
 		$this->db->where('orderID',$delid);
 		$this->db->delete('orders');
 	}
+
+	public function addConfirmation($orderid,$bank,$transferMethod,$dateTransfer, $amount, $struk)
+	{
+		
+
+		$order = array(
+			 'orderID' => $orderid , 
+			 'bank' => $bank,
+			 'transferMethod' => $transferMethod,
+			  'dateTransfer' => $dateTransfer,
+			  'amount' => $amount,
+			  'struk' => $struk);
+
+		$this->db->insert('confirmpayment',$order);
+	}
+
 }

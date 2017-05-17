@@ -26,14 +26,14 @@ class OrderDetail_Model extends CI_Model{
 	{
 		
 		$this->db->select('orderID','productID','quantity','price');
-		$query = $this->db->get('order-details');
+		$query = $this->db->get('orderdetails');
 		return $query->result();
 	}
 
 	public function getProduct($orderID){
 		
-		$this->db->select('od.orderID, od.productID, od.quantity, od.price, p.productName,p.productpicture');
-		$this->db->from('order-details AS od');// I use aliasing make joins easier
+		$this->db->select('od.orderID, od.productID, od.quantity, od.price, p.productName,p.productpicture,p.productCategory');
+		$this->db->from('orderdetails AS od');// I use aliasing make joins easier
 		$this->db->join('products AS p', 'p.productID = od.productID', 'INNER');
 		$this->db->where('od.orderID' ,$orderID);
 		$query = $this->db->get();
@@ -67,7 +67,7 @@ where o.orderID = 2;
 			 'price' => $price
 			  );
 
-		$this->db->insert('order-details',$order);
+		$this->db->insert('orderdetails',$order);
 	}
 
 	public function delete($delid)

@@ -44,6 +44,14 @@ class Customer_Model extends CI_Model{
 
 	}
 
+	public function getAdmin($uname){
+		$this->db->select('username, nama, salt, hash');
+		$this->db->where('username',$uname);
+		$query = $this->db->get('user-admin');
+		return $query->row();
+
+	}
+
 	public function getUserByID($id){
 		$this->db->select('customerid,email,name,hash,salt');
 		$this->db->where('customerid',$id);

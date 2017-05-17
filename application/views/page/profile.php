@@ -19,6 +19,7 @@
 	            <tr>
 	                <th>Order ID</th>
 	                <th>Status</th> <!--Waiting for payment, Packing, Delivery  -->
+	                <th>Payment</th>
 	            </tr>
 	        </thead>
 			
@@ -28,6 +29,7 @@
 					echo"<tr>
 	                <td><a href='".site_url("products/orderdetails/".$line->orderID)."'>".$line->orderID."</a></td>
 	                <td>".$line->status."</td> 
+	                <td><a href='".site_url("products/confirmpayment/".$line->orderID)."'>Payment</a></td>
 	            </tr>";
 				}
 			 ?>

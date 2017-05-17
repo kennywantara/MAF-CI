@@ -3,25 +3,20 @@
 <div class="footer">
    <div class="container">
      <div class="footer-grids">
-       <div class="col-md-3 about-us">
+       <div class="col-md-6 about-us">
          <h3>About Us</h3>
-         <p>Maecenas nec auctor sem. Vivamus porttitor tincidunt elementum nisi a, euismod rhoncus urna. Curabitur scelerisque vulputate arcu eu pulvinar. Fusce vel neque diam
+         <p>Madame Antoine Florist is a trusted 24 hour delivery flower site which can be replied upon to send flowers, hampers and gifts to their loved ones. 
+
+
 
          </p>
        </div>
-       <div class="col-md-3 ftr-grid">
-          <h3>Information</h3>
-          <ul class="nav-bottom">
-            <li><a href="#">Track Order</a></li>
-            <li><a href="#">Best Sellers</a></li> 
-          </ul>         
-       </div>
+     
        <div class="col-md-3 ftr-grid">
           <h3>More Info</h3>
           <ul class="nav-bottom">
-            <li><a href="login.html">Login</a></li>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="contact.html">Contact</a></li>
+            <li><a href="<?php echo site_url("signin/sign_in"); ?>">Login</a></li>
+            <li><a href="<?php echo site_url("contact/index"); ?>">Contact</a></li>
           </ul>         
        </div>
        <div class="col-md-3 ftr-grid">
@@ -43,8 +38,7 @@
         <a style="float:left;" href="<?php echo site_url("Home/aboutus"); ?>"> About Us</a>
         </div>
  -->      <div style="color:white;">
-          © 2017 Madame Antoine Florist. All Rights Reserved | Modified by Si Cantik
-      </div>
+          © 2017 Madame Antoine Florist. All Rights Reserved
     </div>
     <div class="clearfix"></div>
    </div>

@@ -63,7 +63,7 @@
 			</div>
 		</div>
 
-		<div class="form-group">
+	<div class="form-group">
 			<label class="control-label col-sm-3"></label>
 			<div class="col-sm-9">
 				<?php 
@@ -73,8 +73,9 @@
 					        'class'     	=> 'text-box'
 					);
 					echo form_submit($data); 
-				
-					?>									
+					
+
+					?>										
 					
 
 			</div>

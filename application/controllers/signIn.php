@@ -43,7 +43,7 @@ class SignIn extends CI_Controller {
 				'name' => $user->name,
 				'email' => $user->email );
 			$this->session->set_userdata($login);
-			redirect('Home/index');
+			redirect(site_url('Home/index'),'refresh');
 		}
 		else{
 
@@ -66,10 +66,61 @@ class SignIn extends CI_Controller {
 	}
 
 	public function login_admin(){
+
+
+		if(isset($_SESSION['email'])){
+			if(strcmp($_SESSION['email'], "niaelvina") == 0){
+			redirect('admin/customers_management');
+				}
+		else{
 		$data['style'] = $this->load->view('include/style',NULL,TRUE);
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
 		$this->load->view('admin/login-admin',$data);
+		}
+	  }
+	  else{
+		$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$this->load->view('admin/login-admin',$data);
+		}
+	}
+
+
+	public function admin(){
+		$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$this->load->model('customer_model');
+		$user = $this->customer_model->getAdmin($this->input->post('username'));
+		if(empty($user)){
+				$data['error_message'] ='Invalid Username or Password';
+			
+		$this->load->view('admin/login-admin',$data);
+		}
+		else{
+		$password = $this->input->post('password');
+
+		$hash = md5($password.$user->salt);
+
+		if (strcmp($hash, $user->hash) == 0)
+		{
+			$login = array(
+				'name' => $user->nama,
+				'email' => $user->username );
+			$this->session->set_userdata($login);
+			redirect('admin/customers_management');
+		}
+		else{
+
+			$data['error_message'] ='Invalid Username or Password';
+			
+		$this->load->view('admin/login-admin',$data);
+			}
+		}
 	}
 }

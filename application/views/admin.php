@@ -27,7 +27,7 @@ foreach($css_files as $file): ?>
       
     </div>
 	<ul class="nav navbar-nav navbar-right">
-      <li class="active" style="float:right;"><a href="#">Logout</a></li>
+     <li class="active" style="float:right;"><a href="<?php echo site_url("signin/sign_out");?>">Logout</a></li>
     </ul>
   </div>
 </nav>

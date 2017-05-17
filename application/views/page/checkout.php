@@ -36,7 +36,7 @@
 					   		<form id="form<?php echo $data['id']?>"  action="<?php echo site_url() ?>/singleproduct/index" method="post">
 							<input type="hidden" name="productID" id="id" value="<?php echo $data['id'] ?>" />
 							</form>
-						    <h3><a href="" onclick="document.getElementById('form<?php echo $data['id']?>').submit();return false;"><?php echo $data['name'];?></a><span>Model No: RL-5511S</span></h3>
+						    <h3><a href="" onclick="document.getElementById('form<?php echo $data['id']?>').submit();return false;"><?php echo $data['name'];?></a><span><?php echo $data['category']?></span></h3>
 							<ul class="qty">		
 								<li><p>Qty : <?php echo $data['qty'];?> </p></li>
 							</ul>

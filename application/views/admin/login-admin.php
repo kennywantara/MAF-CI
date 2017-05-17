@@ -15,16 +15,24 @@
       
     </div>
 	<ul class="nav navbar-nav navbar-right">
-      <li class="active" style="float:right;"><a href="#">Logout</a></li>
+	<?php if(isset($_SESSION['email'])) {?>
+      <li class="active" style="float:right;"><a href="<?php echo site_url("signin/sign_out");?>">Logout</a></li>
+      <?php }?>
     </ul>
   </div>
 </nav>
 <div class="container">
+<?php
+if(isset($error_message)) {
+    	echo ' <div class="alert alert-danger"><button class="close" data-dismiss="alert"></button>';
+    echo $error_message;
+    echo '</div>';   
+    } ?>
 	<div class="row">
 		<h2>Login</h2>
 		 <div class="col-md-9 log">			 
 				 <p>Login Admin</p>
-				 <?php echo form_open('signIn/sign_in', 'class="form-horizontal"');?>
+				 <?php echo form_open('signIn/admin', 'class="form-horizontal"');?>
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="username">Email</label>
 			<div class="col-sm-8">

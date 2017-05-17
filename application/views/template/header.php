@@ -5,8 +5,8 @@
         <div class="top-nav">
             <ul class="memenu">
                 <li class=""><a href="<?php echo site_url("Home/index"); ?>">Home</a></li>
-                <li class=""><a href="<?php echo site_url("Products/index"); ?>">Products</a></li>
-                <li class=""><a href="<?php echo site_url("Products/customOrder"); ?>">Custom Order</a></li>               
+                <li class=""><a href="<?php echo site_url("Products/index"); ?>">Products</a></li><!-- 
+                <li class=""><a href="<?php echo site_url("Products/customOrder"); ?>">Custom Order</a></li> -->               
                 <li class=""><a href="<?php echo site_url("Contact/index"); ?>">Contact</a></li>               
                 
             </ul>               
