@@ -29,12 +29,9 @@
 
 			
 
-			foreach ($cart as $data) {
-				 	
-				$i++;
-                     ?>
+			foreach ($cart as $data) {$i++;?>
 			<div class="cart-header<?php echo $data['rowid']; ?>">
-				<div class="close<?php echo $data['id']; ?>"> X  </div>
+				<div class="close" id="<?php echo $data['id']; ?>">X</div>
 				<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
 							<img src="<?php echo base_url().'/'.$data['picture'];?>" class="img-responsive" alt=""/>
@@ -60,7 +57,7 @@
 				  </div>
 			 </div>
 			 <script>$(document).ready(function(c) {
-					$('.close<?php echo $data['id']; ?>').on('click', function(c){
+					$('#<?php echo $data['id']; ?>').on('click', function(c){
 						$('.cart-header<?php echo $data['rowid']; ?>').fadeOut('slow', function(c){
 							$('.cart-header<?php echo $data['rowid']; ?>').remove();
 						});

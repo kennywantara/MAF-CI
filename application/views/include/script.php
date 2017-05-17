@@ -11,6 +11,7 @@
 <script type="text/javascript" src="<?php echo base_url(); ?>assets/js/memenu.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <script src="<?php echo base_url(); ?>assets/js/responsiveslides.min.js"></script>
+<script src="http://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 
 
 <script type="text/javascript">
@@ -72,7 +73,72 @@ $.ajax({
 
 
     
-
+$(document).ready(function(){
+    $('#myTable').DataTable();
+});
 
 
 </script>
+
+<script type="text/javascript">
+      /* Formatting function for row details - modify as you need */
+    function format ( d ) {
+        // `d` is the original data object for the row
+        return '<table class="table">'+
+                  '<tr>'+
+                      '<td>Product ID</td>'+
+                      '<td>'+d.productID+'</td>'+
+                  '</tr>'+
+                  '<tr>'+
+                      '<td>Name</td>'+
+                      '<td>'+d.productName+'</td>'+
+                  '</tr>'+
+                  '<tr>'+
+                      '<td>Category</td>'+
+                      '<td>'+d.productCategory+'</td>'+
+                  '</tr>'+
+                  '<tr>'+
+                      '<td>Price</td>'+
+                      '<td>'+d.productPrice+'</td>'+
+                  '</tr>'+
+                '<tr>'+
+                      '<td>Description</td>'+
+                      '<td>'+d.productDescription+'</td>'+
+                  '</tr>'+
+                  '<tr>'+
+                      '<td>Picture</td>'+
+                      '<td>'+d.productPicture+'</td>'+
+                  '</tr>'+
+              '</table>';
+    }
+   
+  $(document).ready(function() {
+  //     var table = $('#example').DataTable( {
+  //         "columns": 
+  //  [
+  //             { "data": "productID" },
+  //             { "data": "productName" },
+  //             { "data": "productCategory" },
+  //             { "data": "productPrice" },
+  //             { "data": "productPicture" }         ] 
+  //     ]} );
+  //     $('#example tbody').on( 'click', 'tr', function () {
+  //         if ( $(this).hasClass('selected') ) {
+  //             $(this).removeClass('selected');
+  //         }
+  //         else {
+  //             table.$('tr.selected').removeClass('selected');
+  //             $(this).addClass('selected');
+  //         }
+  //     } );
+ 
+      $('#button').click( function () {
+          table.row('.selected').remove().draw( false );
+      } ); 
+     
+  } );
+
+  $('#example tbody').on( 'click', 'tr', function () {
+    console.log( table.row( this ).data() );
+} );
+    </script>

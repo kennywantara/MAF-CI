@@ -1,4 +1,4 @@
-    <div class="">            
+    <div style="border-bottom: 1px solid #f7f7f7;">            
         <div class="logo">
             <a href="<?php echo site_url("Home/index"); ?>"><img src="<?php echo base_url();?>img/logo.png" style="max-width:150px;"></a>                 
         </div>        
@@ -6,7 +6,7 @@
             <ul class="memenu">
                 <li class=""><a href="<?php echo site_url("Home/index"); ?>">Home</a></li>
                 <li class=""><a href="<?php echo site_url("Products/index"); ?>">Products</a></li>
-                <li class=""><a href="<?php echo site_url("Products/customOrder"); ?>">CustomOrder</a></li>               
+                <li class=""><a href="<?php echo site_url("Products/customOrder"); ?>">Custom Order</a></li>               
                 <li class=""><a href="<?php echo site_url("Contact/index"); ?>">Contact</a></li>               
                 
             </ul>               
@@ -15,7 +15,7 @@
             <ul class="memenu" >
                   
                 <?php if(isset($_SESSION['name'])){ ?>
-                <li class="" ><a style="float:right;" href="">Welcome , <?php echo $_SESSION['name']; ?></a></li>
+                <li class="" ><a style="float:right;" href="<?php echo site_url("products/profile");?>">Welcome , <?php echo $_SESSION['name']; ?></a></li>
                 <li class="" ><a style="float:right;" href="<?php echo site_url("Signin/sign_out"); ?>">Sign Out</a></li>
                 <?php }
                 else{ ?>
