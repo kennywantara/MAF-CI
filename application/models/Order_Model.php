@@ -30,6 +30,15 @@ class Order_Model extends CI_Model{
 		return $query->result();
 	}
 
+		public function getOrder($custID)
+	{
+		
+		$this->db->select('status,orderID');
+		$this->db->where('customerID',$custID);
+		$query = $this->db->get('orders');
+		return $query->result();
+	}
+
 	public function getLatest(){
 		$this->db->select('orderID');
 		$this->db->order_by("orderID", "desc");

@@ -6,6 +6,7 @@ class Products extends CI_Controller {
 	public function __construct(){
 		parent::__construct();
 		$this->load->model('Product_model');
+		$this->load->model('customer_model');
 		$this->load->model('Order_model');
 		$this->load->model('OrderDetail_model');
 		$this->load->library('form_validation');
@@ -150,6 +151,8 @@ class Products extends CI_Controller {
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$customerid = $this->customer_model->getUser($_SESSION['email']);
+		$data['data'] = $this->Order_model->getOrder($customerid->customerid);
 		$this->load->view('page/profile',$data);	
 	}
 }
