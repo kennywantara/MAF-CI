@@ -131,6 +131,8 @@ class Products extends CI_Controller {
 	}
 	
 	public function confirmPayment(){
+		$orderID = $this->uri->segment(3);
+		$data['order'] = $orderID;
 		$data['style'] = $this->load->view('include/style',NULL,TRUE);
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);

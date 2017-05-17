@@ -19,7 +19,9 @@
 					        'name'          => 'orderID',				   
 					        'class'     	=> 'text-box',
 					        'type' 			=> 'number',
-					        'style'			=> 'width:90%'
+					        'style'			=> 'width:90%',
+					        'value'			=> $order,
+					        'disabled'		=> 'TRUE'
 					); 
 					echo form_input($data);
 				?>
