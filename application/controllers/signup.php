@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class SignUp extends CI_Controller {
 
+  public function __construct(){
+    parent::__construct();
+    $this->load->model('Product_model');
+    $this->load->model('Customer_model');
+  }
+
 	
 	public function index()
 	{
@@ -53,9 +59,14 @@ class SignUp extends CI_Controller {
 		$dob = $this->input->post('dob');
 		$salt = rand(0,9999);
 		$hash = md5($password.$salt);
-
+    
 		$this->Customer_model->add($gender,$email,$name,$dob,$salt,$hash);
-		}
+    $login = array(
+        'name' => $user->name,
+        'email' => $user->email );
+      $this->session->set_userdata($login);
+		$this->load->view('page/home', $data);
+    }
 		else{
 			$this->load->view('page/sign-up',$data);
 		}
