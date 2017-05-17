@@ -68,7 +68,7 @@
 					});
 			   </script>
 			 <?php } if (!empty($cart)){  
-			 	$attributes = array('name' => 'myform');
+			 	$attributes = array('id' => 'form-id');
 			 	 echo form_open('products/payment',$attributes);?>
 			 	 <input type="hidden" name="total" value="<?php echo $total;?>">
 				<div class="form-group">
@@ -92,7 +92,7 @@
 			</ul> 
 			<div class="clearfix"></div>
 			<div class="clearfix"></div>
-			<a onclick="document.forms[2].submit();return false;" class="order" href="#">Proceed to Payment</a>
+			<a onclick="document.getElementById('form-id').submit();return false;" class="order" href="">Proceed to Payment</a>
 			<?php echo form_close() ?>
 		</div>
 

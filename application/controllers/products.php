@@ -125,6 +125,11 @@ class Products extends CI_Controller {
 		
 			}
 		else{
+			$data['style'] = $this->load->view('include/style',NULL,TRUE);
+		$data['script'] = $this->load->view('include/script',NULL,TRUE);
+		$data['header'] = $this->load->view('template/header',NULL,TRUE);
+		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
+		$data['cart']  = $this->cart->contents();
 		$this->load->view('page/checkout',$data);
 		}
 
