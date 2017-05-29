@@ -46,13 +46,13 @@
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="control-label col-sm-3"></label>
+			<label class="control-label col-sm-3 col-sm-offset-3"></label>
 			<div class="col-sm-9">
 				<?php 
 					$data = array(
 					        'name'          => 'submit',
 					        'value'			=> 'Submit',					 			   
-					        'class'     	=> 'text-box'
+					        'class'     	=> 'text-box btn btn-danger'
 					);
 					echo form_submit($data); 
 				

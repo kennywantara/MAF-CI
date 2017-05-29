@@ -122,7 +122,7 @@ class Customer_Model extends CI_Model{
    //End: method tambahan untuk reset code  
    
    public function dropToken($id){
-   	$this->db->where('customerID',$id);
+   	$this->db->where('token',$id);
    	$this->db->delete('tokens');
    }
 

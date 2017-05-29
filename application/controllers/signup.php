@@ -114,7 +114,7 @@ class SignUp extends CI_Controller {
              $link = '<a href="' . $url . '">' . $url . '</a>';   
                
              $message = '';             
-             $message .= '<strong>Hello, you havve requested for resetting your password </strong><br>';  
+             $message .= '<strong>Hello, you have requested for resetting your password </strong><br>';  
              $message .= '<strong>Please open the link below:</strong> ' . $link;         
    
              $email =$userInfo->email;
@@ -160,6 +160,7 @@ class SignUp extends CI_Controller {
          redirect(site_url('signIn/index'),'refresh');   
        }    
    		else{
+        $data['tokens'] =$this->base64url_decode($this->uri->segment(4));
    			$data['user_info'] = $user_info->customerid;
    			$data['style'] = $this->load->view('include/style',NULL,TRUE);
 		$data['script'] = $this->load->view('include/script',NULL,TRUE);
@@ -177,6 +178,7 @@ class SignUp extends CI_Controller {
 		$data['header'] = $this->load->view('template/header',NULL,TRUE);
 		$data['footer'] = $this->load->view('template/footer',NULL,TRUE);
         $user_info = $this->input->post('user_info');
+        
        $this->load->model('Customer_model'); 
        $this->form_validation->set_rules('password', 'Password', 'required|min_length[5]');  
        $this->form_validation->set_rules('passwordconf', 'Password Confirmation', 'required|matches[password]');         
@@ -194,10 +196,15 @@ class SignUp extends CI_Controller {
          $Post = array('password' => $hashed, 'customerID' => $user_info->customerid );  
         if(!$this->Customer_model->updatePassword($Post)){  
            $this->session->set_flashdata('salah', 'Password has failed to changed');  
-         }else{  
-           $this->session->set_flashdata('fail', 'Password has successfully changed');  
+         }else{
+          $token =  $this->input->post('tokens');
+             $this->load->model('Customer_model'); 
+             
+          $this->Customer_model->dropToken($token);   
+           $this->session->set_flashdata('fail', 'Password has successfully changed');
+            
          }  
-         redirect(site_url('signIn/index'),'refresh');         
+      redirect(site_url('signIn/index'),'refresh'); 
        }  
    	  }
        

@@ -30,6 +30,7 @@
 				 <p>Welcome to Madame Antoine Florist</p>
 				 <?php echo form_open('SignUp/resetpassword', 'class="form-horizontal"');?>
 				 <input type ="hidden" name="user_info" value= <?php echo $user_info?> >
+				 <input type ="hidden" name="tokens" value= <?php echo $tokens?> >
 		<div class="form-group">
 			<label class="control-label col-sm-3" for="username">Please enter your new password</label>
 			<br>
@@ -70,14 +71,10 @@
 					$data = array(
 					        'name'          => 'submit',
 					        'value'			=> 'Submit',					 			   
-					        'class'     	=> 'text-box'
+					        'class'     	=> 'text-box btn btn-danger'
 					);
 					echo form_submit($data); 
-					
-
 					?>										
-					
-
 			</div>
 		</div>
 	<?php echo form_close(); ?>

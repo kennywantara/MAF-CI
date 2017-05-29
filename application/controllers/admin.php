@@ -76,6 +76,8 @@ class Admin extends CI_Controller {
 			$crud->unset_columns('productDescription');
 			$crud->callback_column('productPrice',array($this,'valueToIDR'));
 
+			$crud->set_field_upload('productPicture','');
+
 			$output = $crud->render();
 
 			$this->_example_output($output);
