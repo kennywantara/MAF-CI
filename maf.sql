@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
+-- version 4.4.14
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 31 Mei 2017 pada 11.17
--- Versi Server: 10.1.13-MariaDB
--- PHP Version: 5.6.21
+-- Generation Time: Jun 02, 2017 at 03:58 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.5.28
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -23,10 +23,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `confirmpayment`
+-- Table structure for table `confirmpayment`
 --
 
-CREATE TABLE `confirmpayment` (
+CREATE TABLE IF NOT EXISTS `confirmpayment` (
   `orderID` int(11) DEFAULT NULL,
   `bank` varchar(40) DEFAULT NULL,
   `transferMethod` varchar(40) DEFAULT NULL,
@@ -36,7 +36,7 @@ CREATE TABLE `confirmpayment` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `confirmpayment`
+-- Dumping data for table `confirmpayment`
 --
 
 INSERT INTO `confirmpayment` (`orderID`, `bank`, `transferMethod`, `dateTransfer`, `amount`, `struk`) VALUES
@@ -48,10 +48,10 @@ INSERT INTO `confirmpayment` (`orderID`, `bank`, `transferMethod`, `dateTransfer
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `customers`
+-- Table structure for table `customers`
 --
 
-CREATE TABLE `customers` (
+CREATE TABLE IF NOT EXISTS `customers` (
   `customerID` int(11) NOT NULL,
   `gender` varchar(10) NOT NULL,
   `email` varchar(40) NOT NULL,
@@ -59,10 +59,10 @@ CREATE TABLE `customers` (
   `dob` date NOT NULL,
   `salt` varchar(40) NOT NULL,
   `hash` varchar(40) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `customers`
+-- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`customerID`, `gender`, `email`, `name`, `dob`, `salt`, `hash`) VALUES
@@ -86,10 +86,10 @@ INSERT INTO `customers` (`customerID`, `gender`, `email`, `name`, `dob`, `salt`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `order-details`
+-- Table structure for table `order-details`
 --
 
-CREATE TABLE `order-details` (
+CREATE TABLE IF NOT EXISTS `order-details` (
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -97,7 +97,7 @@ CREATE TABLE `order-details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `order-details`
+-- Dumping data for table `order-details`
 --
 
 INSERT INTO `order-details` (`orderID`, `productID`, `quantity`, `price`) VALUES
@@ -121,10 +121,10 @@ INSERT INTO `order-details` (`orderID`, `productID`, `quantity`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orderdetails`
+-- Table structure for table `orderdetails`
 --
 
-CREATE TABLE `orderdetails` (
+CREATE TABLE IF NOT EXISTS `orderdetails` (
   `orderID` int(11) NOT NULL,
   `productID` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE `orderdetails` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `orderdetails`
+-- Dumping data for table `orderdetails`
 --
 
 INSERT INTO `orderdetails` (`orderID`, `productID`, `quantity`, `price`) VALUES
@@ -147,19 +147,19 @@ INSERT INTO `orderdetails` (`orderID`, `productID`, `quantity`, `price`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `orders`
+-- Table structure for table `orders`
 --
 
-CREATE TABLE `orders` (
+CREATE TABLE IF NOT EXISTS `orders` (
   `orderID` int(11) NOT NULL,
   `customerID` int(11) NOT NULL,
   `deliveryAddress` varchar(100) NOT NULL,
   `status` varchar(40) DEFAULT NULL,
   `totalPrice` int(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `orders`
+-- Dumping data for table `orders`
 --
 
 INSERT INTO `orders` (`orderID`, `customerID`, `deliveryAddress`, `status`, `totalPrice`) VALUES
@@ -183,48 +183,48 @@ INSERT INTO `orders` (`orderID`, `customerID`, `deliveryAddress`, `status`, `tot
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `products`
+-- Table structure for table `products`
 --
 
-CREATE TABLE `products` (
+CREATE TABLE IF NOT EXISTS `products` (
   `productID` int(11) NOT NULL,
   `productName` varchar(40) NOT NULL,
   `productCategory` varchar(20) NOT NULL,
   `productPrice` int(11) NOT NULL,
   `productDescription` varchar(1000) NOT NULL,
   `productPicture` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `products`
+-- Dumping data for table `products`
 --
 
 INSERT INTO `products` (`productID`, `productName`, `productCategory`, `productPrice`, `productDescription`, `productPicture`) VALUES
-(1, 'Blue Rose Heart ', 'Hand Bouquet', 500000, 'Blue Bouquet with a Big Heart', 'img/bunga4.png'),
-(2, 'Purple Tiger Lily', 'Hand Bouquet', 400000, 'Purple Bouquet with Lily', 'img/bunga5.png'),
-(3, 'White Blue Rose', 'Hand Bouquet', 500000, 'Mix of Blue and White Rose', 'img/bunga3.png'),
-(4, 'PinkWhite Rose Bouquet', 'Hand Bouquet', 250000, 'Mawar Pink Putih', 'img/bunga7.png'),
-(5, 'Red Flower Box', 'Flower Box', 300000, '', 'img/bungamerah.png'),
-(6, 'Couple Teddy Bouquet', 'Hand Bouquet', 200000, 'Bunga Teddy bear', 'img/bunga8.png'),
-(7, 'White Teddy Bear', 'Graduation Boquet', 2000000, 'White Full Graduation Boquet', 'img/bunga17.png'),
-(8, 'Yellow Lily', 'Graduation Boquet', 150000, 'Graduation Boquet for loved ones', 'img/gr4.png'),
-(9, 'Valentine Box', 'Flower Box', 250000, 'Heart shape flower in a box', 'da608-fb1.png');
+(1, 'Blue Rose Heart ', 'Hand Bouquet', 500000, 'Blue Bouquet with a Big Heart', 'bunga4.png'),
+(2, 'Purple Tiger Lily', 'Hand Bouquet', 400000, 'Purple Bouquet with Lily', 'bunga5.png'),
+(3, 'White Blue Rose', 'Hand Bouquet', 500000, 'Mix of Blue and White Rose', 'bunga3.png'),
+(4, 'PinkWhite Rose Bouquet', 'Hand Bouquet', 250000, 'Mawar Pink Putih', 'bunga7.png'),
+(5, 'Red Flower Box', 'Flower Box', 300000, 'Red Flower handmade into a box', 'bungamerah.png'),
+(6, 'Couple Teddy Bouquet', 'Graduation Bouquet', 200000, 'Bunga Teddy bear', 'bunga8.png'),
+(7, 'White Teddy Bear', 'Graduation Boquet', 2000000, 'White Full Graduation Boquet', 'bunga17.png'),
+(8, 'Yellow Lily', 'Graduation Boquet', 150000, 'Graduation Boquet for loved ones', 'gr4.png'),
+(9, 'Valentine Box', 'Flower Box', 250000, 'Heart shape flower in a box', '650d8-fb1.png');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `tokens`
+-- Table structure for table `tokens`
 --
 
-CREATE TABLE `tokens` (
+CREATE TABLE IF NOT EXISTS `tokens` (
   `id` int(11) NOT NULL,
   `token` varchar(255) NOT NULL,
   `customerID` int(11) NOT NULL,
   `created` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `tokens`
+-- Dumping data for table `tokens`
 --
 
 INSERT INTO `tokens` (`id`, `token`, `customerID`, `created`) VALUES
@@ -241,10 +241,10 @@ INSERT INTO `tokens` (`id`, `token`, `customerID`, `created`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user-admin`
+-- Table structure for table `user-admin`
 --
 
-CREATE TABLE `user-admin` (
+CREATE TABLE IF NOT EXISTS `user-admin` (
   `username` varchar(14) NOT NULL,
   `salt` varchar(10) NOT NULL,
   `hash` varchar(50) NOT NULL,
@@ -253,7 +253,7 @@ CREATE TABLE `user-admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user-admin`
+-- Dumping data for table `user-admin`
 --
 
 INSERT INTO `user-admin` (`username`, `salt`, `hash`, `Nama`, `email`) VALUES
@@ -315,41 +315,41 @@ ALTER TABLE `tokens`
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `customerID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `orderID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=17;
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `productID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT for table `tokens`
 --
 ALTER TABLE `tokens`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `confirmpayment`
+-- Constraints for table `confirmpayment`
 --
 ALTER TABLE `confirmpayment`
   ADD CONSTRAINT `FK_orderPayment` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderID`);
 
 --
--- Ketidakleluasaan untuk tabel `orderdetails`
+-- Constraints for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
   ADD CONSTRAINT `FK_orderOrderDetails3` FOREIGN KEY (`orderID`) REFERENCES `orders` (`orderID`),
   ADD CONSTRAINT `FK_productOrderDetails3` FOREIGN KEY (`productID`) REFERENCES `products` (`productID`);
 
 --
--- Ketidakleluasaan untuk tabel `orders`
+-- Constraints for table `orders`
 --
 ALTER TABLE `orders`
   ADD CONSTRAINT `FK_customerOrder` FOREIGN KEY (`customerID`) REFERENCES `customers` (`customerID`);
