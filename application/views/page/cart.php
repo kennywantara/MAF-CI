@@ -15,7 +15,7 @@
                        <li style='padding:5px;'>
                           <div class='row'>
                               <div class='col-md-3 col-xs-3'>
-                                <img style='width:50px' src='".base_url().$data['picture']."' alt='' />  
+                                <img style='width:50px' src='".base_url()."assets/uploads/files/img/".$data['picture']."' alt='' />  
                               </div>
                               <div class='col-md-7 item-info'>
                                   <span>".$data['name']."</span><br>

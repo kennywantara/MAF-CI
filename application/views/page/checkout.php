@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <?php echo $style; ?>
@@ -29,7 +29,7 @@
 				<div class="close" id="<?php echo $data['id']; ?>">X</div>
 				<div class="cart-sec simpleCart_shelfItem">
 						<div class="cart-item cyc">
-							<img src="<?php echo base_url().'/'.$data['picture'];?>" class="img-responsive" alt=""/>
+							<img src="<?php echo base_url().'assets/uploads/files/img/'.$data['picture'];?>" class="img-responsive" alt=""/>
 						</div>
 					    <div class="cart-item-info">
 					   	 <!-- id -->

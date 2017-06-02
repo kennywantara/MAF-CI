@@ -35,7 +35,7 @@
 		foreach ($data as $line) {						
 			echo "<div class='items-sec btm-sec'>";
 				echo "<div class='col-md-3 feature-grid'>";
-					echo  "<img src= '".base_url()."".$line->productPicture. "' style='max-width:300px;'/>";
+					echo  "<img src= '".base_url()."assets/uploads/files/img/".$line->productPicture. "' style='max-width:300px;'/>";
 					echo " <div class='arrival-info'>";
 					echo "<h4>".$line->productName."</h4>";
 					echo "<p>".$line->productCategory."</p>";

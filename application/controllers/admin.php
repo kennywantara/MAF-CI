@@ -61,7 +61,8 @@ class Admin extends CI_Controller {
 			$crud->set_subject('Order');
 			$crud->unset_add();
 			$crud->unset_delete();
-
+			$crud->field_type('status','dropdown',
+array('1' => 'Waiting Confirmation', '2' => 'Packing','3' => 'Delivery' ));
 			$output = $crud->render();
 
 			$this->_example_output($output);
@@ -76,12 +77,13 @@ class Admin extends CI_Controller {
 			$crud->unset_columns('productDescription');
 			$crud->callback_column('productPrice',array($this,'valueToIDR'));
 
-			$crud->set_field_upload('productPicture','');
+			$crud->set_field_upload('productPicture','assets/uploads/files/img');
 
 			$output = $crud->render();
 
 			$this->_example_output($output);
 	}
+
 
 	public function valueToIDR($value, $row)
 	{
